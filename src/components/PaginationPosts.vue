@@ -21,7 +21,7 @@ export default {
     showNextPage() {
       return this.currentPage !== this.totalPages
     },
-    nextPage(currentPage, totalPages) {
+    nextPage() {
       return this.totalPages > this.currentPage
         ? `${this.base}/${this.currentPage + 1}`
         : `${this.base}/${this.currentPage}`;

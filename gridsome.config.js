@@ -10,6 +10,9 @@ module.exports = {
   siteUrl: 'https://gridsome-portfolio-starter.netlify.com',
   plugins: [
     {
+      use: 'gridsome-plugin-typescript',
+    },
+    {
       use: 'gridsome-plugin-tailwindcss',
     },
     {

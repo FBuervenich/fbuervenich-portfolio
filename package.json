@@ -5,7 +5,9 @@
     "build": "gridsome build",
     "develop": "gridsome develop",
     "explore": "gridsome explore",
-    "test": "./node_modules/.bin/cypress open"
+    "test": "./node_modules/.bin/cypress open",
+    "lint:check": "eslint --ext .ts,.vue ./src",
+    "lint:fix": "yarn lint:check --fix"
   },
   "dependencies": {
     "@gridsome/plugin-sitemap": "^0.4.0",
@@ -16,11 +18,30 @@
     "gridsome": "^0.7.23",
     "gridsome-plugin-remark-shiki": "^0.6.0",
     "gridsome-plugin-rss": "^1.2.0",
-    "vue-fuse": "^2.2.1",
+    "plugin-import": "^1.0.52",
     "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-service": "^4.5.15",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "cypress": "^6.8.0",
-    "gridsome-plugin-tailwindcss": "^3.0.1"
+    "eslint": "^8.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-gridsome": "^1.6.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "gridsome-plugin-tailwindcss": "^3.0.1",
+    "gridsome-plugin-typescript": "^0.4.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.45.0",
+    "sass-loader": "10.1.1",
+    "ts-loader": "~8.2.0",
+    "typescript": "^4.5.4"
   }
 }
