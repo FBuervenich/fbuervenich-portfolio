@@ -27,7 +27,7 @@
     "@vue/cli-plugin-eslint": "^4.5.15",
     "@vue/cli-service": "^4.5.15",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "cypress": "^6.8.0",
+    "cypress": "^9.1.1",
     "eslint": "^8.5.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-gridsome": "^1.6.2",
