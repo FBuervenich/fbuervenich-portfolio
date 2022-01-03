@@ -21,20 +21,20 @@ module.exports = {
         'g-image--loaded',
         'active',
       ],
-    }
+    },
   },
   theme: {
     extend: {
       spacing: {
-        '80': '20rem',
-        '108': '27rem',
+        80: '20rem',
+        108: '27rem',
       },
       borderWidth: {
-        '14': '14px',
-      }
+        14: '14px',
+      },
     },
     container: {
-      padding: '1rem'
+      padding: '1rem',
     },
     colors: {
       background: {
@@ -58,6 +58,14 @@ module.exports = {
 
       black: '#000',
       white: '#fff',
+
+      blue: '#001629',
+      turquoise: '#00a9a5',
+      orange: '#FF6F59',
+      red: {
+        500: '#650D1B',
+        700: '#771821',
+      },
 
       green: {
         100: '#f0fff4',
@@ -115,5 +123,5 @@ module.exports = {
   },
   plugins: [
     // Some useful comment
-  ]
-}
+  ],
+};

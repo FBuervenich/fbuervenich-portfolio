@@ -18,17 +18,17 @@ const client: ClientApiConstructor = (Vue, { router, head }) => {
   head.meta?.push({
     name: 'keywords',
     content:
-      'Gridsome,Vue,Tailwind,Tailwind CSS,JavaScript,HTML,CSS,Vue.js,VueJS',
+      'web,developer,full stack,Gridsome,Vue,Tailwind,Tailwind CSS,JavaScript,HTML,CSS,Vue.js,VueJS',
   });
 
   head.meta?.push({
     name: 'description',
-    content: 'Gridsome Portfolio Starter',
+    content: 'Florentin Buervenich - Full-stack web developer',
   });
 
   head.meta?.push({
     name: 'author',
-    content: 'Andre Madarang',
+    content: 'Florentin Buervenich',
   });
 
   head.link?.push({

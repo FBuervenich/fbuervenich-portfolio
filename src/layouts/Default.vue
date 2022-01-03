@@ -3,7 +3,7 @@
     class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen"
     :class="theme"
   >
-    <header class="top-0 left-0 z-40 fixed w-full border-t-14 border-green-700">
+    <header class="top-0 left-0 z-40 fixed w-full border-t-14 border-red-700">
       <nav
         class="container mx-auto flex flex-wrap justify-between items-center py-8"
       >
@@ -13,12 +13,12 @@
             to="/"
             @click.native="scrollToTop"
           >
-            <g-image src="../../static/logo.svg" class="w-40" alt="logo" />
+            <g-image src="../../static/logo.svg" class="w-100" alt="logo" />
           </g-link>
           <g-link v-else to="/" @click.native="scrollToTop">
             <g-image
               src="../../static/logo_dark_mode.svg"
-              class="w-40"
+              class="w-100"
               alt="logo"
             />
           </g-link>
@@ -130,7 +130,7 @@
       <slot />
     </main>
 
-    <footer class="bg-green-700 text-white">
+    <footer class="bg-red-700 text-white">
       <div
         class="container mx-auto flex flex-col lg:flex-row items-center justify-between py-8"
       >
