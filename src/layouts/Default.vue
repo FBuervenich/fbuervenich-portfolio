@@ -136,7 +136,8 @@
       >
         <div class="mb-8 lg:mb-0">
           <div>
-            Copyright {{ new Date().getFullYear() }}. All rights reserved.
+            Copyright © {{ new Date().getFullYear() }} Florentin Bürvenich. All
+            rights reserved.
           </div>
           <div>
             <a
@@ -151,6 +152,20 @@
               class="text-white hover:text-gray-400 font-normal"
             >
               Sitemap
+            </a>
+            |
+            <a
+              href="/imprint"
+              class="text-white hover:text-gray-400 font-normal"
+            >
+              Imprint
+            </a>
+            |
+            <a
+              href="/privacy"
+              class="text-white hover:text-gray-400 font-normal"
+            >
+              Privacy policy
             </a>
           </div>
         </div>
@@ -196,7 +211,7 @@
 
           <li>
             <a
-              href="https://www.linkedin.com/in/fbuervenich/"
+              href="https://www.xing.com/profile/Florentin_Buervenich"
               target="_blank"
               class="text-white hover:text-gray-400"
             >

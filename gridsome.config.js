@@ -57,7 +57,7 @@ module.exports = {
           title: node.title,
           description: node.summary,
           url: 'https://gridsome-portfolio-starter.netlify.com' + node.path,
-          author: 'Andre Madarang',
+          author: 'Florentin Bürvenich',
           date: node.date,
         }),
         output: {
