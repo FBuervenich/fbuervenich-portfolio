@@ -1,6 +1,6 @@
 <template>
   <Transition name="fade">
-    <div v-if="value">
+    <div v-show="value">
       <!--Overlay Effect-->
       <div
         class="fixed z-40 inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
