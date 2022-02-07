@@ -3,7 +3,7 @@
     class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen"
     :class="theme"
   >
-    <header class="top-0 left-0 z-40 fixed w-full border-t-14 border-red-700">
+    <header class="top-0 left-0 z-30 fixed w-full border-t-14 border-red-700">
       <nav
         class="container mx-auto flex flex-wrap justify-between items-center py-8"
       >

@@ -12,10 +12,7 @@
           </div>
         </div>
         <div class="md:w-2/5 sm:w-0">
-          <g-image
-            src="../../static/content_creator.svg"
-            alt="404 page not found"
-          />
+          <g-image src="../../static/content_creator.svg" alt="Imprint" />
         </div>
       </div>
     </div>
