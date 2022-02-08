@@ -28,35 +28,31 @@
           </label>
         </p>
         <div class="flex flex-wrap mb-6 -mx-4">
-          <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
-            <label class="block mb-2 text-copy-primary" for="name">Name</label>
+          <label class="block mb-2 text-copy-primary" for="name">Name</label>
 
-            <input
-              v-model="formData.name"
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Jon Snow"
-              class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
-              required
-            />
-          </div>
+          <input
+            v-model="formData.name"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Jon Snow"
+            class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
+            required
+          />
 
-          <div class="w-full px-4 md:w-1/2">
-            <label class="block text-copy-primary mb-2" for="email">
-              Email Address
-            </label>
+          <label class="block text-copy-primary mb-2" for="email">
+            Email Address
+          </label>
 
-            <input
-              v-model="formData.email"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="email@example.com"
-              class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
-              required
-            />
-          </div>
+          <input
+            v-model="formData.email"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="email@example.com"
+            class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
+            required
+          />
         </div>
 
         <div class="w-full mb-12">
