@@ -28,31 +28,35 @@
           </label>
         </p>
         <div class="flex flex-wrap mb-6 -mx-4">
-          <label class="block mb-2 text-copy-primary" for="name">Name</label>
+          <div class="">
+            <label class="block mb-2 text-copy-primary" for="name">Name</label>
 
-          <input
-            v-model="formData.name"
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Jon Snow"
-            class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
-            required
-          />
+            <input
+              v-model="formData.name"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Jon Snow"
+              class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
+              required
+            />
+          </div>
 
-          <label class="block text-copy-primary mb-2" for="email">
-            Email Address
-          </label>
+          <div class="">
+            <label class="block text-copy-primary mb-2" for="email">
+              Email Address
+            </label>
 
-          <input
-            v-model="formData.email"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="email@example.com"
-            class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
-            required
-          />
+            <input
+              v-model="formData.email"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="email@example.com"
+              class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
+              required
+            />
+          </div>
         </div>
 
         <div class="w-full mb-12">
