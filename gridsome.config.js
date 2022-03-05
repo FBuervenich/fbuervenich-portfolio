@@ -4,11 +4,13 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+const SITE_URL = 'https://home.fbuervenich.de';
+
 module.exports = {
   siteName: 'Florentin Bürvenich',
   siteDescription:
     'My portfolio website (powered by Gridsome & Tailwind CSS v1)',
-  siteUrl: 'https://home.fbuervenich.de/',
+  siteUrl: SITE_URL,
   plugins: [
     {
       use: 'gridsome-plugin-typescript',
@@ -34,6 +36,13 @@ module.exports = {
     {
       use: '@gridsome/source-filesystem',
       options: {
+        path: 'career/**/*.md',
+        typeName: 'Career',
+      },
+    },
+    {
+      use: '@gridsome/source-filesystem',
+      options: {
         path: 'blog/**/*.md',
         typeName: 'Post',
         refs: {
@@ -50,13 +59,13 @@ module.exports = {
         contentTypeName: 'Post',
         feedOptions: {
           title: 'Florentin Buervenich - Blog',
-          feed_url: 'https://gridsome-portfolio-starter.netlify.com/rss.xml',
-          site_url: 'https://gridsome-portfolio-starter.netlify.com/',
+          feed_url: `${SITE_URL}/rss.xml`,
+          site_url: `${SITE_URL}`,
         },
         feedItemOptions: node => ({
           title: node.title,
           description: node.summary,
-          url: 'https://gridsome-portfolio-starter.netlify.com' + node.path,
+          url: SITE_URL + node.path,
           author: 'Florentin Bürvenich',
           date: node.date,
         }),

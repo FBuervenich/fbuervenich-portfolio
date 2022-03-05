@@ -1,7 +1,7 @@
 <template>
   <div
     class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen"
-    :class="theme"
+    :class="{ [theme]: true, dark: theme === 'theme-dark' }"
   >
     <header class="top-0 left-0 z-30 fixed w-full border-t-14 border-red-700">
       <nav
@@ -106,6 +106,15 @@
           </li>
           <li>
             <g-link
+              to="/career"
+              class="text-copy-primary hover:text-gray-600"
+              data-cypress="docs"
+            >
+              Career
+            </g-link>
+          </li>
+          <!-- <li>
+            <g-link
               to="/docs"
               class="text-copy-primary hover:text-gray-600"
               data-cypress="docs"
@@ -121,7 +130,7 @@
             >
               Blog
             </g-link>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </header>

@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: 'class',
   purge: {
     content: [
       './src/**/*.vue',
@@ -37,6 +38,7 @@ module.exports = {
       padding: '1rem',
     },
     colors: {
+      current: 'currentColor',
       background: {
         primary: 'var(--bg-background-primary)',
         secondary: 'var(--bg-background-secondary)',
@@ -59,10 +61,13 @@ module.exports = {
       black: '#000',
       white: '#fff',
 
+      primary: 'var(--bg-background-primary)',
+
       blue: '#001629',
       turquoise: '#00a9a5',
       orange: '#FF6F59',
       red: {
+        200: '#D63343',
         500: '#650D1B',
         700: '#771821',
       },
