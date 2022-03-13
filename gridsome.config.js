@@ -16,6 +16,29 @@ module.exports = {
       use: 'gridsome-plugin-typescript',
     },
     {
+      use: 'gridsome-plugin-i18n',
+      options: {
+        locales: [
+          // locales list
+          'de-de',
+          'en-us',
+        ],
+        pathAliases: {
+          // path segment alias for each locales
+          'de-de': 'de',
+          'en-us': 'en',
+        },
+        fallbackLocale: 'en-us', // fallback language
+        defaultLocale: 'en-us', // default language
+        enablePathRewrite: true, // rewrite path with locale prefix, default: true
+        rewriteDefaultLanguage: true, // rewrite default locale, default: true
+        messages: {
+          // 'de-de': require('./src/locales/de-de.json'),
+          // 'en-us': require('./src/locales/en-us.json'),
+        },
+      },
+    },
+    {
       use: 'gridsome-plugin-tailwindcss',
     },
     {

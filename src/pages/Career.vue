@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <h2 class="text-4xl font-bold mb-16">Career</h2>
+      <h2 class="text-4xl font-bold mb-16">{{ $t('pages.career.title') }}</h2>
       <div class="flex">
         <div class="md:w-4/5 w-full">
           <ol class="relative border-l border-gray-200 dark:border-gray-700">
@@ -36,7 +36,7 @@
                 {{ getDurationString(step.node) }}
               </time>
               <p
-                class="markdown-body mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
+                class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
                 v-html="step.node.content"
               ></p>
               <p>{{ formatTechStack(step.node) }}</p>
@@ -100,7 +100,7 @@ export default Vue.extend({
       const startDateString = startDate.toISOString().substring(0, 7);
       return `${startDateString} - ${endDateString}`;
     },
-    formatDuration(noMonths: number) {
+    formatDuration(noMonths: number): string {
       if (noMonths < 12) {
         return this.formatMonths(noMonths);
       }
@@ -110,11 +110,11 @@ export default Vue.extend({
         ? this.formatYears(noYears)
         : `${this.formatYears(noYears)}, ${this.formatMonths(noRestMonths)}`;
     },
-    formatMonths(noMonths: number) {
-      return noMonths === 1 ? `${noMonths} month` : `${noMonths} months`;
+    formatMonths(noMonths: number): string {
+      return this.$tc('common.durations.month', noMonths).toString();
     },
-    formatYears(noYears: number) {
-      return noYears === 1 ? `${noYears} year` : `${noYears} years`;
+    formatYears(noYears: number): string {
+      return this.$tc('common.durations.year', noYears).toString();
     },
     monthDiff(d1: Date, d2: Date) {
       let months;

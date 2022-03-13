@@ -48,74 +48,77 @@
         >
           <li class="mb-6 lg:mb-0"></li>
           <li>
+            <locale-switcher />
+          </li>
+          <li>
             <theme-switcher :theme="theme" @themeChanged="updateTheme" />
           </li>
           <li>
             <a
               v-if="$route.path === '/'"
-              href="/#projects"
+              :href="$tp('/#projects')"
               v-scroll-to="{ el: '#projects', offset: -25 }"
               class="text-copy-primary hover:text-gray-600"
               data-cypress="projects"
             >
-              Projects
+              {{ $t('layouts.default.navigation_projects') }}
             </a>
             <g-link
               v-else
-              to="/#projects"
+              :to="$tp('/#projects')"
               class="text-copy-primary hover:text-gray-600"
             >
-              Projects
+              {{ $t('layouts.default.navigation_projects') }}
             </g-link>
           </li>
           <li>
             <a
               v-if="$route.path === '/'"
-              href="/#about"
+              :href="$tp('/#about')"
               v-scroll-to="{ el: '#about', offset: -90 }"
               class="text-copy-primary hover:text-gray-600"
               data-cypress="about"
             >
-              About
+              {{ $t('layouts.default.navigation_about') }}
             </a>
             <g-link
               v-else
-              to="/#about"
+              :to="$tp('/#about')"
               class="text-copy-primary hover:text-gray-600"
             >
-              About
+              {{ $t('layouts.default.navigation_about') }}
             </g-link>
           </li>
           <li>
             <a
               v-if="$route.path === '/'"
-              href="/#contact"
+              :href="$tp('/#contact')"
               v-scroll-to="{ el: '#contact', offset: -25 }"
               class="text-copy-primary hover:text-gray-600"
               data-cypress="contact"
             >
-              Contact
+              {{ $t('layouts.default.navigation_contact') }}
             </a>
             <g-link
               v-else
-              to="/#contact"
+              :to="$tp('/#contact')"
               class="text-copy-primary hover:text-gray-600"
             >
-              Contact
+              {{ $t('layouts.default.navigation_contact') }}
             </g-link>
           </li>
           <li>
             <g-link
-              to="/career"
+              :to="$tp('/career')"
               class="text-copy-primary hover:text-gray-600"
-              data-cypress="docs"
+              data-cypress="career"
             >
-              Career
+              {{ $t('layouts.default.navigation_career') }}
             </g-link>
           </li>
           <!-- <li>
             <g-link
-              to="/docs"
+              :to="$tp('/docs')"
               class="text-copy-primary hover:text-gray-600"
               data-cypress="docs"
             >
@@ -124,7 +127,7 @@
           </li>
           <li>
             <g-link
-              to="/blog"
+              :to="$tp('/blog')"
               class="text-copy-primary hover:text-gray-600"
               data-cypress="blog"
             >
@@ -145,36 +148,36 @@
       >
         <div class="mb-8 lg:mb-0">
           <div>
-            Copyright © {{ new Date().getFullYear() }} Florentin Bürvenich. All
-            rights reserved.
+            Copyright © {{ new Date().getFullYear() }}
+            {{ $t('common.personal_details.name') }}
           </div>
           <div>
             <a
               href="/rss.xml"
               class="text-white hover:text-gray-400 font-normal"
             >
-              RSS Feed
+              {{ $t('layouts.default.footer_rss') }}
             </a>
             |
             <a
               href="/sitemap.xml"
               class="text-white hover:text-gray-400 font-normal"
             >
-              Sitemap
+              {{ $t('layouts.default.footer_sitemap') }}
             </a>
             |
             <a
               href="/imprint"
               class="text-white hover:text-gray-400 font-normal"
             >
-              Imprint
+              {{ $t('layouts.default.footer_imprint') }}
             </a>
             |
             <a
               href="/privacy"
               class="text-white hover:text-gray-400 font-normal"
             >
-              Privacy policy
+              {{ $t('layouts.default.footer_privacy') }}
             </a>
           </div>
         </div>
@@ -288,11 +291,13 @@ query {
 </static-query>
 
 <script>
+import LocaleSwitcher from '~/components/LocaleSwitcher.vue';
 import ThemeSwitcher from '../components/ThemeSwitcher';
 
 export default {
   components: {
     ThemeSwitcher,
+    LocaleSwitcher,
   },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'theme-light';

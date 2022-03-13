@@ -1,0 +1,61 @@
+{
+  "common": {
+    "languages": {
+      "de-de": "🇩🇪 German",
+      "en-us": "🇬🇧 English"
+    },
+    "personal_details": {
+      "name": "Florentin Bürvenich"
+    },
+    "durations": {
+      "day": "0 days | 1 day | {count} days",
+      "month": "0 months | 1 month | {count} months",
+      "year": "0 years | 1 year | {count} years"
+    }
+  },
+  "components": {
+    "contact_form": {
+      "field_email": "Email Address",
+      "field_message": "Message",
+      "field_name": "Name",
+      "placeholder_mail": "email@example.com",
+      "placeholder_name": "Jon Snow",
+      "placeholder_message": "Enter your message here.",
+      "success_message": "Your message was submitted.",
+      "success_title": "Success!",
+      "title": "Contact me:"
+    }
+  },
+  "layouts": {
+    "default": {
+      "footer_imprint": "Imprint",
+      "footer_privacy": "Privacy Policy",
+      "footer_rss": "RSS Feed",
+      "footer_sitemap": "Sitemap",
+      "navigation_about": "About",
+      "navigation_career": "Career",
+      "navigation_contact": "Contact",
+      "navigation_language": "Language",
+      "navigation_projects": "Projects"
+    }
+  },
+  "pages": {
+    "career": {
+      "title": "Career"
+    },
+    "imprint": {
+      "title": "Imprint"
+    },
+    "index": {
+      "about_subtitle": "Software developer focused on web development",
+      "about_title": "Get to know me:",
+      "introduction": "Welcome to my personal portfolio. I am a full stack developer focused on web technologies. Currently, I work at {nextaudit} where we create a SaaS product to turn the auditing process into a pleasant, digital solution.",
+      "projects_title": "Here are some projects I've worked on:",
+      "subtitle_text": "Welcome to my portfolio!",
+      "title_text": "Full-stack web developer"
+    },
+    "privacy": {
+      "title": "Privacy Policy"
+    }
+  }
+}
