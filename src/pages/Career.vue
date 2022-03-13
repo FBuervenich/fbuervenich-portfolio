@@ -71,117 +71,61 @@ query CareerSteps {
 </page-query>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import Vue from 'vue';
 
-@Component
-export default class Career extends Vue {
-  public title = 'Career';
-
-  getDurationString(stepNode: {
-    startDate: string;
-    endDate: string;
-    [x: string]: unknown;
-  }): string {
-    const startDate = new Date(stepNode.startDate);
-    const endDate = isNaN(Date.parse(stepNode.endDate))
-      ? new Date()
-      : new Date(stepNode.endDate);
-    const months = this.monthDiff(startDate, endDate);
-    return `${this.formatPeriod(
-      startDate,
-      stepNode.endDate
-    )} · ${this.formatDuration(months)}`;
-  }
-  formatPeriod(startDate: Date, endDate: string) {
-    const endDateString = isNaN(Date.parse(endDate))
-      ? 'Present'
-      : new Date(endDate).toISOString().substring(0, 7);
-    const startDateString = startDate.toISOString().substring(0, 7);
-    return `${startDateString} - ${endDateString}`;
-  }
-  formatDuration(noMonths: number): string {
-    if (noMonths < 12) {
-      return this.formatMonths(noMonths);
-    }
-    const noYears = Math.floor(noMonths / 12);
-    const noRestMonths = noMonths % 12;
-    return noRestMonths === 0
-      ? this.formatYears(noYears)
-      : `${this.formatYears(noYears)}, ${this.formatMonths(noRestMonths)}`;
-  }
-  formatMonths(noMonths: number): string {
-    // return this.$t('')
-    return noMonths === 1 ? `${noMonths} month` : `${noMonths} months`;
-  }
-  formatYears(noYears: number) {
-    return noYears === 1 ? `${noYears} year` : `${noYears} years`;
-  }
-  monthDiff(d1: Date, d2: Date) {
-    let months;
-    months = (d2.getFullYear() - d1.getFullYear()) * 12;
-    months -= d1.getMonth() - 1;
-    months += d2.getMonth();
-    return months <= 0 ? 0 : months;
-  }
-  formatTechStack(stepNode: { stack?: string[]; [x: string]: unknown }) {
-    return stepNode.stack?.join(' | ') ?? '';
-  }
-}
-
-// export default Vue.extend({
-//   metaInfo: {
-//     title: 'Career',
-//   },
-//   methods: {
-//     getDurationString(stepNode: {
-//       startDate: string;
-//       endDate: string;
-//       [x: string]: unknown;
-//     }): string {
-//       const startDate = new Date(stepNode.startDate);
-//       const endDate = isNaN(Date.parse(stepNode.endDate))
-//         ? new Date()
-//         : new Date(stepNode.endDate);
-//       const months = this.monthDiff(startDate, endDate);
-//       return `${this.formatPeriod(
-//         startDate,
-//         stepNode.endDate
-//       )} · ${this.formatDuration(months)}`;
-//     },
-//     formatPeriod(startDate: Date, endDate: string) {
-//       const endDateString = isNaN(Date.parse(endDate))
-//         ? 'Present'
-//         : new Date(endDate).toISOString().substring(0, 7);
-//       const startDateString = startDate.toISOString().substring(0, 7);
-//       return `${startDateString} - ${endDateString}`;
-//     },
-//     formatDuration(noMonths: number): string {
-//       if (noMonths < 12) {
-//         return this.formatMonths(noMonths);
-//       }
-//       const noYears = Math.floor(noMonths / 12);
-//       const noRestMonths = noMonths % 12;
-//       return noRestMonths === 0
-//         ? this.formatYears(noYears)
-//         : `${this.formatYears(noYears)}, ${this.formatMonths(noRestMonths)}`;
-//     },
-//     formatMonths(noMonths: number): string {
-//       return this.$t('');
-//       return noMonths === 1 ? `${noMonths} month` : `${noMonths} months`;
-//     },
-//     formatYears(noYears: number) {
-//       return noYears === 1 ? `${noYears} year` : `${noYears} years`;
-//     },
-//     monthDiff(d1: Date, d2: Date) {
-//       let months;
-//       months = (d2.getFullYear() - d1.getFullYear()) * 12;
-//       months -= d1.getMonth() - 1;
-//       months += d2.getMonth();
-//       return months <= 0 ? 0 : months;
-//     },
-//     formatTechStack(stepNode: { stack?: string[]; [x: string]: unknown }) {
-//       return stepNode.stack?.join(' | ') ?? '';
-//     },
-//   },
-// });
+export default Vue.extend({
+  metaInfo: {
+    title: 'Career',
+  },
+  methods: {
+    getDurationString(stepNode: {
+      startDate: string;
+      endDate: string;
+      [x: string]: unknown;
+    }): string {
+      const startDate = new Date(stepNode.startDate);
+      const endDate = isNaN(Date.parse(stepNode.endDate))
+        ? new Date()
+        : new Date(stepNode.endDate);
+      const months = this.monthDiff(startDate, endDate);
+      return `${this.formatPeriod(
+        startDate,
+        stepNode.endDate
+      )} · ${this.formatDuration(months)}`;
+    },
+    formatPeriod(startDate: Date, endDate: string) {
+      const endDateString = isNaN(Date.parse(endDate))
+        ? 'Present'
+        : new Date(endDate).toISOString().substring(0, 7);
+      const startDateString = startDate.toISOString().substring(0, 7);
+      return `${startDateString} - ${endDateString}`;
+    },
+    formatDuration(noMonths: number): string {
+      if (noMonths < 12) {
+        return this.formatMonths(noMonths);
+      }
+      const noYears = Math.floor(noMonths / 12);
+      const noRestMonths = noMonths % 12;
+      return noRestMonths === 0
+        ? this.formatYears(noYears)
+        : `${this.formatYears(noYears)}, ${this.formatMonths(noRestMonths)}`;
+    },
+    formatMonths(noMonths: number): string {
+      return this.$tc('common.durations.month', noMonths).toString();
+    },
+    formatYears(noYears: number): string {
+      return this.$tc('common.durations.year', noYears).toString();
+    },
+    monthDiff(d1: Date, d2: Date) {
+      let months;
+      months = (d2.getFullYear() - d1.getFullYear()) * 12;
+      months -= d1.getMonth() - 1;
+      months += d2.getMonth();
+      return months <= 0 ? 0 : months;
+    },
+    formatTechStack(stepNode: { stack?: string[]; [x: string]: unknown }) {
+      return stepNode.stack?.join(' | ') ?? '';
+    },
+  },
+});
 </script>
