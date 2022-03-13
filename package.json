@@ -17,9 +17,12 @@
     "@vue/runtime-dom": "^3.2.31",
     "axios": "^0.25.0",
     "gridsome": "^0.7.23",
+    "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-plugin-remark-shiki": "^0.6.0",
     "gridsome-plugin-rss": "^1.2.0",
     "plugin-import": "^1.0.52",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.1.2",
     "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {

@@ -6,8 +6,12 @@
       <div
         class="flex flex-col justify-center text-4xl font-bold w-full sm:w-3/5 text-center sm:text-left"
       >
-        <div class="leading-tight">Full-stack web developer</div>
-        <div class="text-red-700 leading-tight">Welcome to my portfolio!</div>
+        <div class="leading-tight">
+          {{ $t('pages.index.title_text') }}
+        </div>
+        <div class="text-red-700 leading-tight">
+          {{ $t('pages.index.subtitle_text') }}
+        </div>
       </div>
       <div class="mt-8 sm:mt-0 w-1/5">
         <g-image
@@ -17,18 +21,15 @@
         />
       </div>
     </div>
-    <!-- end hero -->
 
     <div class="container-inner mx-auto py-6">
-      <p class="text-lg sm:text-xl">
-        Welcome to my personal portfolio. I am a full stack developer focused on
-        web technologies. Currently, I work at
-        <a href="https://next-audit.de/" target="_blank" rel="noopener">
-          nextAudit
-        </a>
-        where we create a SaaS product to turn the auditing process into a
-        pleasant, digital solution.
-      </p>
+      <i18n path="pages.index.introduction" class="text-lg sm:text-xl" tag="p">
+        <template #nextaudit>
+          <a href="https://next-audit.de/" target="_blank" rel="noopener">
+            nextAudit
+          </a>
+        </template>
+      </i18n>
       <p class="text-lg sm:text-xl"></p>
     </div>
 
@@ -37,7 +38,9 @@
       <div
         class="projects container-inner mx-auto text-xl border-t border-gray-500 border-b py-16 mb-16 relative"
       >
-        <h2 class="font-bold mb-6">Here are some projects I've worked on:</h2>
+        <h2 class="font-bold mb-6">
+          {{ $t('pages.index.projects_title') }}
+        </h2>
 
         <div
           class="absolute right-0"
@@ -121,7 +124,9 @@
       <div
         class="get-to-know-me container-inner mx-auto text-xl pb-16 relative"
       >
-        <h2 class="font-bold mb-6">Get to know me:</h2>
+        <h2 class="font-bold mb-6">
+          {{ $t('pages.index.about_title') }}
+        </h2>
 
         <div
           class="absolute left-0"
@@ -143,8 +148,12 @@
             />
           </div>
           <div class="flex-1 text-lg sm:text-xl ml-6">
-            <div class="font-bold">Florentin Bürvenich</div>
-            <div>Software developer focused on web development</div>
+            <div class="font-bold">
+              {{ $t('common.personal_details.name') }}
+            </div>
+            <div>
+              {{ $t('pages.index.about_subtitle') }}
+            </div>
           </div>
         </div>
       </div>

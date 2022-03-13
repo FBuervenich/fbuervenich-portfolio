@@ -3,10 +3,14 @@
 
 import { ClientApiConstructor } from './types';
 
-import DefaultLayout from '~/layouts/Default.vue';
+import DefaultLayout from './layouts/Default.vue';
 import VueScrollTo from 'vue-scrollto';
+import 'vue-router';
 
-const client: ClientApiConstructor = (Vue, { router, head }) => {
+const client: ClientApiConstructor = (Vue, { router, head, appOptions }) => {
+  appOptions.i18n.setLocaleMessage('de-de', require('./locales/de-de.json'));
+  appOptions.i18n.setLocaleMessage('en-us', require('./locales/en-us.json'));
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
 

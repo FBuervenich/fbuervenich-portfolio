@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="font-bold mb-6">Contact me:</h2>
+    <h2 class="font-bold mb-6">{{ $t('components.contact_form.title') }}</h2>
 
     <div
       class="absolute right-0 top-0"
@@ -27,14 +27,16 @@
             <input name="botField" v-model="formData.botField" />
           </div>
           <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
-            <label class="block mb-2 text-copy-primary" for="name">Name</label>
+            <label class="block mb-2 text-copy-primary" for="name">
+              {{ $t('components.contact_form.field_name') }}
+            </label>
 
             <input
               v-model="formData.name"
               type="text"
               name="name"
               id="name"
-              placeholder="Jon Snow"
+              :placeholder="$t('components.contact_form.placeholder_name')"
               class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
               required
             />
@@ -42,7 +44,7 @@
 
           <div class="w-full px-4 md:w-1/2">
             <label class="block text-copy-primary mb-2" for="email">
-              Email Address
+              {{ $t('components.contact_form.field_email') }}
             </label>
 
             <input
@@ -50,7 +52,7 @@
               type="email"
               name="email"
               id="email"
-              placeholder="email@example.com"
+              :placeholder="$t('components.contact_form.placeholder_mail')"
               class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
               required
             />
@@ -59,7 +61,7 @@
 
         <div class="w-full mb-12">
           <label class="block text-copy-primary mb-2" for="message">
-            Message
+            {{ $t('components.contact_form.field_message') }}
           </label>
 
           <textarea
@@ -68,7 +70,7 @@
             rows="5"
             name="message"
             class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none appearance-none focus:border-red-700 mb-2 px-4 py-4"
-            placeholder="Enter your message here."
+            :placeholder="$t('components.contact_form.placeholder_message')"
             required
           ></textarea>
         </div>
@@ -101,9 +103,13 @@
           ></path>
         </svg>
       </div>
-      <h3 class="text-xl leading-6 font-large text-gray-900">Success!</h3>
+      <h3 class="text-xl leading-6 font-large text-gray-900">
+        {{ $t('components.contact_form.success_title') }}
+      </h3>
       <div class="px-7 pt-3 pb-5">
-        <p class="text-md text-gray-500">Your message was submitted.</p>
+        <p class="text-md text-gray-500">
+          {{ $t('components.contact_form.success_message') }}
+        </p>
       </div>
       <button
         type="button"
