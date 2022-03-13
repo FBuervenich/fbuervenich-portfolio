@@ -1,7 +1,61 @@
 {
+  "common": {
+    "languages": {
+      "de-de": "🇩🇪 Deutsch",
+      "en-us": "🇬🇧 Englisch"
+    },
+    "personal_details": {
+      "name": "Florentin Bürvenich"
+    },
+    "durations": {
+      "day": "0 Tage | 1 Tag | {count} Tage",
+      "month": "0 Monate | 1 Monat | {count} Monate",
+      "year": "0 Jahre | 1 Jahr | {count} Jahre"
+    }
+  },
+  "components": {
+    "contact_form": {
+      "field_email": "E-Mail-Addresse",
+      "field_message": "Nachricht",
+      "field_name": "Name",
+      "placeholder_mail": "email@beispiel.de",
+      "placeholder_name": "Jon Schnee",
+      "placeholder_message": "Geben Sie hier Ihre Nachricht ein.",
+      "success_message": "Die Nachricht wurde übermittelt.",
+      "success_title": "Erfolgreich!",
+      "title": "Kontaktieren Sie mich:"
+    }
+  },
   "layouts": {
     "default": {
+      "footer_imprint": "Impressum",
+      "footer_privacy": "Datenschutzerklärung",
+      "footer_rss": "RSS-Feed",
+      "footer_sitemap": "Sitemap",
+      "navigation_about": "Über",
+      "navigation_career": "Karriere",
+      "navigation_contact": "Kontakt",
+      "navigation_language": "Sprache",
       "navigation_projects": "Projekte"
+    }
+  },
+  "pages": {
+    "career": {
+      "title": "Karriere"
+    },
+    "imprint": {
+      "title": "Impressum"
+    },
+    "index": {
+      "about_subtitle": "Softwareentwickler mit Schwerpunkt Webentwicklung",
+      "about_title": "Lernen Sie mich kennen:",
+      "introduction": "Willkommen in meinem persönlichen Portfolio. Ich bin ein Full-Stack-Entwickler mit Schwerpunkt auf Webtechnologien. Derzeit arbeite ich bei {nextaudit}, wo wir ein SaaS-Produkt entwickeln, um den Auditprozess in eine nutzerfreundliche, digitale Lösung zu verwandeln.",
+      "projects_title": "Hier sind einige Projekte, an denen ich gearbeitet habe:",
+      "subtitle_text": "Willkommen in meinem Portfolio!",
+      "title_text": "Full-Stack-Webentwickler"
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung"
     }
   }
 }

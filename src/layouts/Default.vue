@@ -148,8 +148,8 @@
       >
         <div class="mb-8 lg:mb-0">
           <div>
-            Copyright © {{ new Date().getFullYear() }} Florentin Bürvenich. All
-            rights reserved.
+            Copyright © {{ new Date().getFullYear() }}
+            {{ $t('common.personal_details.name') }}
           </div>
           <div>
             <a

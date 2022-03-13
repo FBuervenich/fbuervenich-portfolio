@@ -65,16 +65,16 @@ export default {
   methods: {
     localeChanged(newLocale) {
       this.visible = false;
-      // if (newLocale !== this.currentLocale) {
-      this.currentLocale = newLocale;
-      this.$router
-        .push({
-          path: this.$tp(this.$route.path, this.currentLocale, true),
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      // }
+      if (newLocale !== this.currentLocale) {
+        this.currentLocale = newLocale;
+        this.$router
+          .push({
+            path: this.$tp(this.$route.path, this.currentLocale, true),
+          })
+          .catch(e => {
+            console.log(e);
+          });
+      }
     },
   },
   mounted() {
@@ -83,7 +83,6 @@ export default {
     });
 
     this.$refs['language-picker'].addEventListener('click', event => {
-      console.log('propagation stopped');
       event.stopPropagation();
     });
   },

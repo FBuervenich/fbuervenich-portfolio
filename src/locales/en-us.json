@@ -40,7 +40,12 @@
     }
   },
   "pages": {
-    "career": { "title": "Career" },
+    "career": {
+      "title": "Career"
+    },
+    "imprint": {
+      "title": "Imprint"
+    },
     "index": {
       "about_subtitle": "Software developer focused on web development",
       "about_title": "Get to know me:",
@@ -48,6 +53,9 @@
       "projects_title": "Here are some projects I've worked on:",
       "subtitle_text": "Welcome to my portfolio!",
       "title_text": "Full-stack web developer"
+    },
+    "privacy": {
+      "title": "Privacy Policy"
     }
   }
 }

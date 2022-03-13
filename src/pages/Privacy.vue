@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <h2 class="text-4xl font-bold mb-16">Privacy policy</h2>
+      <h2 class="text-4xl font-bold mb-16">{{ $t('pages.privacy.title') }}</h2>
       <div class="flex flex-row">
         <div class="md:w-3/5 w-full">
           <div v-for="(section, idx) in privacySections" :key="idx">
