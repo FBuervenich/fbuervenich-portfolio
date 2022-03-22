@@ -149,7 +149,7 @@
         <div class="mb-8 lg:mb-0">
           <div>
             Copyright © {{ new Date().getFullYear() }}
-            {{ $t('common.personal_details.name') }}
+            {{ `${personalData.firstName} ${[personalData.lastName]}` }}
           </div>
           <div>
             <a
@@ -184,7 +184,7 @@
         <ul class="flex items-center space-x-8">
           <li>
             <a
-              href="mailto:fbuervenich@pm.me"
+              :href="`mailto:${personalData.publicEmail}`"
               class="text-white hover:text-gray-400"
             >
               <svg
@@ -203,7 +203,7 @@
 
           <li>
             <a
-              href="https://www.linkedin.com/in/fbuervenich/"
+              :href="personalData.linkedinUrl"
               target="_blank"
               class="text-white hover:text-gray-400"
             >
@@ -223,7 +223,7 @@
 
           <li>
             <a
-              href="https://www.xing.com/profile/Florentin_Buervenich"
+              :href="personalData.xingUrl"
               target="_blank"
               class="text-white hover:text-gray-400"
             >
@@ -243,7 +243,7 @@
 
           <li>
             <a
-              href="https://github.com/FBuervenich"
+              :href="personalData.githubUrl"
               target="_blank"
               class="text-white hover:text-gray-400"
             >
@@ -284,17 +284,31 @@
 
 <static-query>
 query {
-  metadata {
-    siteName
+  singletons: allSingletons {
+    edges {
+      node {
+        id
+        type
+        data {
+          firstName
+          lastName
+          publicEmail
+          linkedinUrl
+          xingUrl
+          githubUrl
+        }
+      }
+    }
   }
 }
 </static-query>
 
 <script>
+import Vue from 'vue';
 import LocaleSwitcher from '~/components/LocaleSwitcher.vue';
-import ThemeSwitcher from '../components/ThemeSwitcher';
+import ThemeSwitcher from '../components/ThemeSwitcher.vue';
 
-export default {
+export default Vue.extend({
   components: {
     ThemeSwitcher,
     LocaleSwitcher,
@@ -319,7 +333,15 @@ export default {
       this.theme = theme;
     },
   },
-};
+  computed: {
+    personalData: function () {
+      const data = this.$static.singletons.edges.find(
+        v => v.node.type === 'Personal'
+      );
+      return data.node.data;
+    },
+  },
+});
 </script>
 
 <style src="../css/main.css" />

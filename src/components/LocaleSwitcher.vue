@@ -52,6 +52,7 @@
 </template>
 
 <script>
+import { setLocale } from '~/plugins/LocalizedStringTranslation';
 export default {
   name: 'LocaleSwitcher',
   data: function () {
@@ -67,6 +68,7 @@ export default {
       this.visible = false;
       if (newLocale !== this.currentLocale) {
         this.currentLocale = newLocale;
+        setLocale(newLocale);
         this.$router
           .push({
             path: this.$tp(this.$route.path, this.currentLocale, true),

@@ -3,6 +3,7 @@ position: Apprenticeship as mathematical technical software developer
 company: Laboratory for Machine Tools and Production Engineering (“WZL der RWTH Aachen”)
 startDate: 2015-09-01
 endDate: 2018-08-31
+active: false
 ---
 
 - • Development of applications for optimization of processes in the field of production management

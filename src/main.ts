@@ -6,13 +6,16 @@ import { ClientApiConstructor } from './types';
 import DefaultLayout from './layouts/Default.vue';
 import VueScrollTo from 'vue-scrollto';
 import 'vue-router';
+import { LocalizedStringTranslationPlugin } from '@/plugins/LocalizedStringTranslation';
 
 const client: ClientApiConstructor = (Vue, { router, head, appOptions }) => {
-  appOptions.i18n.setLocaleMessage('de-de', require('./locales/de-de.json'));
-  appOptions.i18n.setLocaleMessage('en-us', require('./locales/en-us.json'));
+  appOptions.i18n.setLocaleMessage('de', require('./locales/de.json'));
+  appOptions.i18n.setLocaleMessage('en', require('./locales/en.json'));
 
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
+
+  Vue.use(LocalizedStringTranslationPlugin);
 
   Vue.use(VueScrollTo, {
     duration: 500,

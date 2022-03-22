@@ -52,65 +52,29 @@
         </div>
 
         <ul class="text-lg sm:text-xl space-y-6">
-          <li class="checkmark">
+          <li
+            class="checkmark"
+            v-for="step in $page.steps.edges"
+            :key="step.node.id"
+          >
             <div>
-              AuditCloud (
-              <a href="https://next-audit.de/" target="_blank" rel="noopener">
-                nextAudit
-              </a>
-              )
+              {{ $translate(step.node.name) }}
             </div>
-
-            <div class="text-lg text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab
-              nam animi iure nemo exercitationem a, eius non culpa itaque!
-            </div>
+            <!-- prettier-ignore -->
+            <div class="text-lg text-gray-600 pre">{{
+                $translate(step.node.description)
+                }}</div>
             <div class="text-lg text-gray-gray-900">
-              Vue.js | TypeScript | Node.js | Express | Firebase (Firestore DB)
+              {{ formatTechnologies(step.node) }}
             </div>
-            <div>
+            <div v-if="step.node.projectUrl">
               <a
                 class="inline-block"
-                href="https://next-audit.de/auditcloud/"
+                :href="step.node.projectUrl"
                 target="_blank"
                 rel="noopener"
               >
-                more
-              </a>
-            </div>
-          </li>
-          <li class="checkmark">
-            <div>Project Two</div>
-            <div class="text-lg text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab
-              nam animi iure nemo exercitationem a, eius non culpa itaque!
-            </div>
-          </li>
-          <li class="checkmark">
-            <div>Project Three</div>
-            <div class="text-lg text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab
-              nam animi iure nemo exercitationem a, eius non culpa itaque!
-            </div>
-          </li>
-          <li class="checkmark">
-            <div>WoPS (Wertstromorientierte Produktionssteuerung)</div>
-            <div class="text-lg text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab
-              nam animi iure nemo exercitationem a, eius non culpa itaque!
-            </div>
-            <div class="text-lg text-gray-gray-900">
-              PostgreSQL | Hibernate | Java-Backend | Python | Flask |
-              Web-Frontend
-            </div>
-            <div>
-              <a
-                class="inline-block"
-                href="https://gpmc-aachen.de/tools/wops/"
-                target="_blank"
-                rel="noopener"
-              >
-                Project-website
+                {{ $translate(step.node.projectUrlDescription) }}
               </a>
             </div>
           </li>
@@ -149,7 +113,7 @@
           </div>
           <div class="flex-1 text-lg sm:text-xl ml-6">
             <div class="font-bold">
-              {{ $t('common.personal_details.name') }}
+              {{ `${personalData.firstName} ${[personalData.lastName]}` }}
             </div>
             <div>
               {{ $t('pages.index.about_subtitle') }}
@@ -172,15 +136,86 @@
   </Layout>
 </template>
 
-<script>
-import ContactForm from '../components/ContactForm';
+<page-query>
+query {
+  singletons: allSingletons {
+    edges {
+      node {
+        id
+        type
+        data {
+          firstName
+          lastName
+        }
+      }
+    }
+  }
+  steps: allProjects {
+    edges {
+      node {
+        id
+        name {
+          en
+          de
+        }
+        heading {
+          en
+          de
+        }
+        description {
+          en
+          de
+        }
+        projectUrl
+        projectUrlDescription {
+          en
+          de
+        }
+        technologies {
+          en
+          de
+        }
+      }
+    }
+  }
+}
+</page-query>
 
-export default {
+<script lang="ts">
+import Vue from 'vue';
+import ContactForm from '../components/ContactForm.vue';
+import { LocalizedString } from '@/types';
+
+export default Vue.extend({
   metaInfo: {
     title: 'Home',
   },
   components: {
     ContactForm,
   },
-};
+  computed: {
+    personalData: function () {
+      const data = this.$page.singletons.edges.find(
+        (v: any) => v.node.type === 'Personal'
+      );
+      return data.node.data;
+    },
+  },
+  methods: {
+    formatTechnologies(stepNode: {
+      technologies?: LocalizedString[];
+      [x: string]: unknown;
+    }): string {
+      return stepNode.technologies
+        ? stepNode.technologies.map(v => this.$translate(v)).join(' | ')
+        : '';
+    },
+  },
+});
 </script>
+
+<style scoped>
+.pre {
+  white-space: pre-wrap;
+}
+</style>

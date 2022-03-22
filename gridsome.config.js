@@ -5,6 +5,11 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 const SITE_URL = 'https://home.fbuervenich.de';
+const LOCALES = [
+  // locales list
+  'de',
+  'en',
+];
 
 module.exports = {
   siteName: 'Florentin Bürvenich',
@@ -18,23 +23,19 @@ module.exports = {
     {
       use: 'gridsome-plugin-i18n',
       options: {
-        locales: [
-          // locales list
-          'de-de',
-          'en-us',
-        ],
+        locales: LOCALES,
         pathAliases: {
           // path segment alias for each locales
-          'de-de': 'de',
-          'en-us': 'en',
+          de: 'de',
+          en: 'en',
         },
-        fallbackLocale: 'en-us', // fallback language
-        defaultLocale: 'en-us', // default language
+        fallbackLocale: 'en', // fallback language
+        defaultLocale: 'en', // default language
         enablePathRewrite: true, // rewrite path with locale prefix, default: true
         rewriteDefaultLanguage: true, // rewrite default locale, default: true
         messages: {
-          // 'de-de': require('./src/locales/de-de.json'),
-          // 'en-us': require('./src/locales/en-us.json'),
+          // 'de': require('./src/locales/de.json'),
+          // 'en': require('./src/locales/en.json'),
         },
       },
     },
@@ -54,13 +55,6 @@ module.exports = {
             { theme: 'Material-Theme-Palenight', skipInline: true },
           ],
         ],
-      },
-    },
-    {
-      use: '@gridsome/source-filesystem',
-      options: {
-        path: 'career/**/*.md',
-        typeName: 'Career',
       },
     },
     {

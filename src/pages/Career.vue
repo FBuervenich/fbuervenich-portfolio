@@ -28,18 +28,24 @@
               <h3
                 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white"
               >
-                {{ step.node.position }}, {{ step.node.company }}
+                {{ $translate(step.node.position) }},
+                {{ $translate(step.node.company) }}
               </h3>
               <time
                 class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
               >
                 {{ getDurationString(step.node) }}
               </time>
-              <p
+              <div
                 class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
-                v-html="step.node.content"
-              ></p>
-              <p>{{ formatTechStack(step.node) }}</p>
+              >
+                <ul class="content-list">
+                  <li v-for="(content, idx) in step.node.content" :key="idx">
+                    {{ $translate(content) }}
+                  </li>
+                </ul>
+              </div>
+              <p>{{ formatTechnologies(step.node) }}</p>
             </li>
           </ol>
         </div>
@@ -52,18 +58,30 @@
 </template>
 
 <page-query>
-query CareerSteps {
+query Career {
   steps: allCareer (sortBy: "startDate", order: DESC) {
     edges {
       node {
         id
-        position
-        company
+        position {
+          en
+          de
+        }
+        company {
+          en
+          de
+        }
         startDate
         endDate
         active
-        stack
-        content
+        technologies {
+          en
+          de
+        }
+        content {
+          en
+          de
+        }
       }
     }
   }
@@ -72,6 +90,7 @@ query CareerSteps {
 
 <script lang="ts">
 import Vue from 'vue';
+import { LocalizedString } from '@/types';
 
 export default Vue.extend({
   metaInfo: {
@@ -123,9 +142,31 @@ export default Vue.extend({
       months += d2.getMonth();
       return months <= 0 ? 0 : months;
     },
-    formatTechStack(stepNode: { stack?: string[]; [x: string]: unknown }) {
-      return stepNode.stack?.join(' | ') ?? '';
+    formatTechnologies(stepNode: {
+      technologies?: LocalizedString[];
+      [x: string]: unknown;
+    }): string {
+      return stepNode.technologies
+        ? stepNode.technologies.map(v => this.$translate(v)).join(' | ')
+        : '';
     },
   },
 });
 </script>
+<style scoped>
+ul.content-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul.content-list > li {
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+ul.content-list > li:before {
+  content: '•';
+  padding-right: 5px;
+}
+</style>

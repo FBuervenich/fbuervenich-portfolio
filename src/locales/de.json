@@ -1,11 +1,8 @@
 {
   "common": {
     "languages": {
-      "de-de": "🇩🇪 Deutsch",
-      "en-us": "🇬🇧 Englisch"
-    },
-    "personal_details": {
-      "name": "Florentin Bürvenich"
+      "de": "🇩🇪 Deutsch",
+      "en": "🇬🇧 Englisch"
     },
     "durations": {
       "day": "0 Tage | 1 Tag | {count} Tage",
