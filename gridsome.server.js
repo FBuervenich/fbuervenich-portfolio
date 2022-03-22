@@ -37,7 +37,8 @@ module.exports = function (api, options) {
       );
       const collection = actions.addCollection(dataFile.collectionName);
 
-      data.forEach(v => {
+      // reverse the data so we preserve the correct order
+      data.reverse().forEach(v => {
         enricheAllWithLocalizationKeys(v);
         collection.addNode(v);
       });
