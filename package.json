@@ -15,7 +15,8 @@
     "@gridsome/transformer-remark": "^0.6.4",
     "@gridsome/vue-remark": "^0.2.6",
     "@vue/runtime-dom": "^3.2.31",
-    "axios": "^0.25.0",
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
     "gridsome": "^0.7.23",
     "gridsome-plugin-i18n": "^1.6.0",
     "gridsome-plugin-remark-shiki": "^0.6.0",
@@ -26,7 +27,7 @@
   "devDependencies": {
     "@types/react": "file:stub/types__react",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
+    "@typescript-eslint/parser": "^5.16.0",
     "@vue/cli-plugin-eslint": "^4.5.15",
     "@vue/cli-service": "^4.5.15",
     "@vue/eslint-config-prettier": "^7.0.0",
