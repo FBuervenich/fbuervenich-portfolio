@@ -34,6 +34,7 @@ module.exports = {
         enablePathRewrite: true, // rewrite path with locale prefix, default: true
         rewriteDefaultLanguage: true, // rewrite default locale, default: true
         messages: {
+          // import localization files dynamically in main.ts in order for them to be hot reloaded
           // 'de': require('./src/locales/de.json'),
           // 'en': require('./src/locales/en.json'),
         },

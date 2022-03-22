@@ -9,6 +9,7 @@ import 'vue-router';
 import { LocalizedStringTranslationPlugin } from '@/plugins/LocalizedStringTranslation';
 
 const client: ClientApiConstructor = (Vue, { router, head, appOptions }) => {
+  // load localization files here so the hot reload works properly
   appOptions.i18n.setLocaleMessage('de', require('./locales/de.json'));
   appOptions.i18n.setLocaleMessage('en', require('./locales/en.json'));
 
