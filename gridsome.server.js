@@ -39,6 +39,8 @@ module.exports = function (api, options) {
 
       // reverse the data so we preserve the correct order
       data.reverse().forEach(v => {
+        // enriche all potentially missing translations with the default (en) language
+        // otherwise, fetching the data from the graphql layer fails when keys are missing
         enricheAllWithLocalizationKeys(v);
         collection.addNode(v);
       });
