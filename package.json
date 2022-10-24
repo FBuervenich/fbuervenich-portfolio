@@ -33,7 +33,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "autoprefixer": "^9",
     "cypress": "^6.8.0",
-    "eslint": "^8.5.0",
+    "eslint": "^8.26.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-gridsome": "^1.6.2",
     "eslint-plugin-node": "^11.1.0",
