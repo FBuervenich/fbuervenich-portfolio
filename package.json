@@ -45,7 +45,7 @@
     "gridsome-plugin-typescript": "^0.4.0",
     "postcss": "^7",
     "prettier": "^2.5.1",
-    "sass": "^1.45.0",
+    "sass": "^1.57.0",
     "sass-loader": "12.4.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "ts-loader": "~8.2.0",
