@@ -8,3 +8,13 @@ declare module 'vue/types/vue' {
     $page: { [x: string]: any };
   }
 }
+
+declare global {
+  namespace NodeJS {
+    interface Process {
+      isClient?: boolean;
+    }
+  }
+}
+
+export {};

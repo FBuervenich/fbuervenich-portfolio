@@ -1,11 +1,13 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
+import posthog from 'posthog-js';
+import VueScrollTo from 'vue-scrollto';
+import 'vue-router';
+
 import { ClientApiConstructor } from './types';
 
 import DefaultLayout from './layouts/Default.vue';
-import VueScrollTo from 'vue-scrollto';
-import 'vue-router';
 import { LocalizedStringTranslationPlugin } from '@/plugins/LocalizedStringTranslation';
 
 const client: ClientApiConstructor = (Vue, { router, head, appOptions }) => {
@@ -43,6 +45,20 @@ const client: ClientApiConstructor = (Vue, { router, head, appOptions }) => {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,700',
   });
+
+  if (process?.isClient) {
+    posthog.init('phc_1ZwaRLmq6WjoB8YHn7gzmMFwzuJIG8grQ4tYsKHzScf', {
+      api_host: 'https://eu.i.posthog.com',
+      autocapture: true,
+      capture_pageview: false,
+    });
+
+    router.afterEach(to => {
+      posthog.capture('$pageview', {
+        $current_url: to.fullPath,
+      });
+    });
+  }
 };
 
 export default client;
