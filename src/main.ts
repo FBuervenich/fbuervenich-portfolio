@@ -47,17 +47,24 @@ const client: ClientApiConstructor = (Vue, { router, head, appOptions }) => {
   });
 
   if (process?.isClient) {
-    posthog.init('phc_1ZwaRLmq6WjoB8YHn7gzmMFwzuJIG8grQ4tYsKHzScf', {
-      api_host: 'https://eu.i.posthog.com',
-      autocapture: true,
-      capture_pageview: false,
-    });
+    const isRealEnvironment =
+      process.env.NODE_ENV === 'production' &&
+      typeof window !== 'undefined' &&
+      !['localhost', '127.0.0.1'].includes(window.location.hostname);
 
-    router.afterEach(to => {
-      posthog.capture('$pageview', {
-        $current_url: to.fullPath,
+    if (isRealEnvironment) {
+      posthog.init('phc_1ZwaRLmq6WjoB8YHn7gzmMFwzuJIG8grQ4tYsKHzScf', {
+        api_host: 'https://eu.i.posthog.com',
+        autocapture: true,
+        capture_pageview: false,
       });
-    });
+
+      router.afterEach(to => {
+        posthog.capture('$pageview', {
+          $current_url: to.fullPath,
+        });
+      });
+    }
   }
 };
 
