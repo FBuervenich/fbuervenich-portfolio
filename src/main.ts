@@ -54,7 +54,8 @@ const client: ClientApiConstructor = (Vue, { router, head, appOptions }) => {
 
     if (isRealEnvironment) {
       posthog.init('phc_1ZwaRLmq6WjoB8YHn7gzmMFwzuJIG8grQ4tYsKHzScf', {
-        api_host: 'https://eu.i.posthog.com',
+        api_host: 'https://ph.fbuervenich.de',
+        ui_host: 'https://eu.posthog.com',
         autocapture: true,
         capture_pageview: false,
       });
