@@ -7,10 +7,11 @@
           <ol class="relative border-l border-gray-200 dark:border-gray-700">
             <li
               class="mb-10 ml-6"
-              v-for="step in $page.steps.edges"
+              v-for="(step, index) in $page.steps.edges"
               :key="step.node.id"
             >
               <span
+                v-if="isLatestPositionForCompany(index)"
                 class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-red-700 bg-opacity-50 rounded-full ring-8 ring-white dark:ring-primary dark:bg-white"
               >
                 <svg
@@ -25,6 +26,10 @@
                   ></path>
                 </svg>
               </span>
+              <span
+                v-else
+                class="absolute -left-1.5 mt-1.5 w-3 h-3 bg-gray-400 rounded-full ring-8 ring-white dark:ring-primary"
+              />
               <h3
                 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white"
               >
@@ -97,6 +102,30 @@ export default Vue.extend({
     title: 'Career',
   },
   methods: {
+    isLatestPositionForCompany(index: number): boolean {
+      const currentStep = this.$page.steps.edges[index];
+
+      if (!currentStep) {
+        return true;
+      }
+
+      const currentCompanyKey = this.getCompanyKey(currentStep.node.company);
+
+      for (let i = 0; i < index; i++) {
+        const previousCompanyKey = this.getCompanyKey(
+          this.$page.steps.edges[i].node.company
+        );
+
+        if (previousCompanyKey === currentCompanyKey) {
+          return false;
+        }
+      }
+
+      return true;
+    },
+    getCompanyKey(company: LocalizedString): string {
+      return `${company.en}::${company.de}`;
+    },
     getDurationString(stepNode: {
       startDate: string;
       endDate: string;
