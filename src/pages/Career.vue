@@ -37,12 +37,12 @@
                 {{ $translate(step.node.company) }}
               </h3>
               <time
-                class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+                class="block mb-2 text-sm font-normal leading-none text-gray-600 dark:text-gray-500"
               >
                 {{ getDurationString(step.node) }}
               </time>
               <div
-                class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
+                class="mb-4 text-base font-normal text-gray-800 dark:text-gray-400"
               >
                 <ul class="content-list">
                   <li v-for="(content, idx) in step.node.content" :key="idx">
