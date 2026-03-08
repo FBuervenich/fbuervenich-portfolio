@@ -2,9 +2,9 @@
   "name": "fbuervenich-portfolio",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
-    "develop": "gridsome develop",
-    "explore": "gridsome explore",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider gridsome build",
+    "develop": "NODE_OPTIONS=--openssl-legacy-provider gridsome develop",
+    "explore": "NODE_OPTIONS=--openssl-legacy-provider gridsome explore",
     "test": "./node_modules/.bin/cypress open",
     "lint:check": "eslint --ext .ts,.vue ./src",
     "lint:fix": "yarn lint:check --fix"
