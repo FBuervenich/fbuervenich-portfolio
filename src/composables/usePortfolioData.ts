@@ -1,5 +1,3 @@
-import portfolioData from '~/data/portfolio.json';
-
 interface PortfolioData {
   career: Record<string, unknown>[];
   education: Record<string, unknown>[];
@@ -18,10 +16,8 @@ const EMPTY_DATA: PortfolioData = {
   personal: {},
 };
 
-const STATIC_PORTFOLIO_DATA = portfolioData as PortfolioData;
-
 export const usePortfolioData = () => {
-  return useAsyncData<PortfolioData>('portfolio-data', () => Promise.resolve(STATIC_PORTFOLIO_DATA), {
+  return useAsyncData<PortfolioData>('portfolio-data', () => $fetch<PortfolioData>('/api/portfolio'), {
     default: () => EMPTY_DATA,
   });
 };
