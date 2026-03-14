@@ -15,7 +15,7 @@
       "field_email": "E-Mail-Addresse",
       "field_message": "Nachricht",
       "field_name": "Name",
-      "placeholder_mail": "email@beispiel.de",
+      "placeholder_mail": "email [at] beispiel.de",
       "placeholder_name": "Jon Schnee",
       "placeholder_message": "Geben Sie hier Ihre Nachricht ein.",
       "success_message": "Die Nachricht wurde übermittelt.",

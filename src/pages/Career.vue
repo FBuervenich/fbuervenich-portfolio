@@ -6,9 +6,9 @@
         <div class="md:w-4/5 w-full">
           <ol class="relative border-l border-gray-200 dark:border-gray-700">
             <li
+              v-for="(step, index) in steps"
+              :key="String(step.id)"
               class="mb-10 ml-6"
-              v-for="(step, index) in $page.steps.edges"
-              :key="step.node.id"
             >
               <span
                 v-if="isLatestPositionForCompany(index)"
@@ -33,155 +33,137 @@
               <h3
                 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white"
               >
-                {{ $translate(step.node.position) }},
-                {{ $translate(step.node.company) }}
+                {{ $translate(step.position) }}, {{ $translate(step.company) }}
               </h3>
               <time
                 class="block mb-2 text-sm font-normal leading-none text-gray-600 dark:text-gray-500"
               >
-                {{ getDurationString(step.node) }}
+                {{ getDurationString(step) }}
               </time>
               <div
                 class="mb-4 text-base font-normal text-gray-800 dark:text-gray-400"
               >
                 <ul class="content-list">
-                  <li v-for="(content, idx) in step.node.content" :key="idx">
+                  <li v-for="(content, idx) in step.content || []" :key="idx">
                     {{ $translate(content) }}
                   </li>
                 </ul>
               </div>
-              <p>{{ formatTechnologies(step.node) }}</p>
+              <p>{{ formatTechnologies(step.technologies) }}</p>
             </li>
           </ol>
         </div>
         <div class="md:w-1/5 w-0 pl-10">
-          <g-image src="../../static/resume.svg" alt="Resume" />
+          <g-image src="/resume.svg" alt="Resume" />
         </div>
       </div>
     </div>
   </Layout>
 </template>
 
-<page-query>
-query Career {
-  steps: allCareer (sortBy: "startDate", order: DESC) {
-    edges {
-      node {
-        id
-        position {
-          en
-          de
-        }
-        company {
-          en
-          de
-        }
-        startDate
-        endDate
-        active
-        technologies {
-          en
-          de
-        }
-        content {
-          en
-          de
-        }
-      }
+<script setup lang="ts">
+import type { LocalizedString } from '../types';
+import { usePortfolioCareer } from '../composables/usePortfolioCareer';
+
+interface CareerStep {
+  id: string;
+  position: LocalizedString;
+  company: LocalizedString;
+  startDate: string;
+  endDate: string;
+  technologies?: LocalizedString[];
+  content?: LocalizedString[];
+}
+
+const { t } = useI18n();
+const { data: careerData } = await usePortfolioCareer();
+
+const steps = computed<CareerStep[]>(() => {
+  const careerSteps = (careerData.value as CareerStep[]) || [];
+  return [...careerSteps].reverse();
+});
+
+useHead({ title: 'Career' });
+
+function isLatestPositionForCompany(index: number): boolean {
+  const currentStep = steps.value[index];
+
+  if (!currentStep) {
+    return true;
+  }
+
+  const currentCompanyKey = getCompanyKey(currentStep.company);
+
+  for (let i = 0; i < index; i += 1) {
+    const previousCompanyKey = getCompanyKey(steps.value[i].company);
+    if (previousCompanyKey === currentCompanyKey) {
+      return false;
     }
   }
+
+  return true;
 }
-</page-query>
 
-<script lang="ts">
-import Vue from 'vue';
-import { LocalizedString } from '@/types';
+function getCompanyKey(company: LocalizedString): string {
+  return `${company.en}::${company.de}`;
+}
 
-export default Vue.extend({
-  metaInfo: {
-    title: 'Career',
-  },
-  methods: {
-    isLatestPositionForCompany(index: number): boolean {
-      const currentStep = this.$page.steps.edges[index];
+function getDurationString(stepNode: CareerStep): string {
+  const startDate = new Date(stepNode.startDate);
+  const endDate = Number.isNaN(Date.parse(stepNode.endDate))
+    ? new Date()
+    : new Date(stepNode.endDate);
+  const months = monthDiff(startDate, endDate);
 
-      if (!currentStep) {
-        return true;
-      }
+  return `${formatPeriod(startDate, stepNode.endDate)} · ${formatDuration(
+    months
+  )}`;
+}
 
-      const currentCompanyKey = this.getCompanyKey(currentStep.node.company);
+function formatPeriod(startDate: Date, endDate: string): string {
+  const endDateString = Number.isNaN(Date.parse(endDate))
+    ? 'Present'
+    : new Date(endDate).toISOString().substring(0, 7);
+  const startDateString = startDate.toISOString().substring(0, 7);
 
-      for (let i = 0; i < index; i++) {
-        const previousCompanyKey = this.getCompanyKey(
-          this.$page.steps.edges[i].node.company
-        );
+  return `${startDateString} - ${endDateString}`;
+}
 
-        if (previousCompanyKey === currentCompanyKey) {
-          return false;
-        }
-      }
+function formatDuration(noMonths: number): string {
+  if (noMonths < 12) {
+    return formatMonths(noMonths);
+  }
 
-      return true;
-    },
-    getCompanyKey(company: LocalizedString): string {
-      return `${company.en}::${company.de}`;
-    },
-    getDurationString(stepNode: {
-      startDate: string;
-      endDate: string;
-      [x: string]: unknown;
-    }): string {
-      const startDate = new Date(stepNode.startDate);
-      const endDate = isNaN(Date.parse(stepNode.endDate))
-        ? new Date()
-        : new Date(stepNode.endDate);
-      const months = this.monthDiff(startDate, endDate);
-      return `${this.formatPeriod(
-        startDate,
-        stepNode.endDate
-      )} · ${this.formatDuration(months)}`;
-    },
-    formatPeriod(startDate: Date, endDate: string) {
-      const endDateString = isNaN(Date.parse(endDate))
-        ? 'Present'
-        : new Date(endDate).toISOString().substring(0, 7);
-      const startDateString = startDate.toISOString().substring(0, 7);
-      return `${startDateString} - ${endDateString}`;
-    },
-    formatDuration(noMonths: number): string {
-      if (noMonths < 12) {
-        return this.formatMonths(noMonths);
-      }
-      const noYears = Math.floor(noMonths / 12);
-      const noRestMonths = noMonths % 12;
-      return noRestMonths === 0
-        ? this.formatYears(noYears)
-        : `${this.formatYears(noYears)}, ${this.formatMonths(noRestMonths)}`;
-    },
-    formatMonths(noMonths: number): string {
-      return this.$tc('common.durations.month', noMonths).toString();
-    },
-    formatYears(noYears: number): string {
-      return this.$tc('common.durations.year', noYears).toString();
-    },
-    monthDiff(d1: Date, d2: Date) {
-      let months;
-      months = (d2.getFullYear() - d1.getFullYear()) * 12;
-      months -= d1.getMonth() - 1;
-      months += d2.getMonth();
-      return months <= 0 ? 0 : months;
-    },
-    formatTechnologies(stepNode: {
-      technologies?: LocalizedString[];
-      [x: string]: unknown;
-    }): string {
-      return stepNode.technologies
-        ? stepNode.technologies.map(v => this.$translate(v)).join(' | ')
-        : '';
-    },
-  },
-});
+  const noYears = Math.floor(noMonths / 12);
+  const noRestMonths = noMonths % 12;
+
+  return noRestMonths === 0
+    ? formatYears(noYears)
+    : `${formatYears(noYears)}, ${formatMonths(noRestMonths)}`;
+}
+
+function formatMonths(noMonths: number): string {
+  return String(t('common.durations.month', noMonths));
+}
+
+function formatYears(noYears: number): string {
+  return String(t('common.durations.year', noYears));
+}
+
+function monthDiff(d1: Date, d2: Date): number {
+  let months = (d2.getFullYear() - d1.getFullYear()) * 12;
+  months -= d1.getMonth() - 1;
+  months += d2.getMonth();
+  return months <= 0 ? 0 : months;
+}
+
+function formatTechnologies(technologies?: LocalizedString[]): string {
+  return technologies
+    ? technologies.map(item => useNuxtApp().$translate(item)).join(' | ')
+    : '';
+}
 </script>
+
 <style scoped>
 ul.content-list {
   list-style: none;

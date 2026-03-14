@@ -1,12 +1,16 @@
 <template>
   <div>
-    <div ref="language-picker" class="relative inline-block text-left">
+    <div
+      ref="languagePicker"
+      class="relative inline-block text-left"
+      @click.stop
+    >
       <div>
         <button
-          type="button"
-          class="emojiFlag inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
           id="menu-button"
-          @click="visible = !visible"
+          type="button"
+          class="emojiFlag inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none"
+          @click.stop="visible = !visible"
         >
           {{ $t('layouts.default.navigation_language') }}:
           {{ $t(`common.languages.${currentLocale}`) }}
@@ -31,70 +35,74 @@
         tabindex="-1"
       >
         <div class="py-1" role="none">
-          <a
-            v-for="(locale, index) in availableLocales"
-            :key="index"
-            class="text-gray-700 block px-4 py-2 text-sm cursor-pointer"
+          <button
+            type="button"
+            v-for="(localeCode, index) in availableLocales"
+            :id="`menu-item-${index}`"
+            :key="localeCode"
+            class="text-left text-gray-700 block px-4 py-2 text-sm cursor-pointer w-full"
             role="menuitem"
             :tabindex="index"
-            id="menu-item-0"
-            @click.prevent="localeChanged(locale)"
+            @click="localeChanged(localeCode)"
           >
-            <img src="" alt="" />
             <span class="emojiFlag">
-              {{ $t(`common.languages.${locale}`) }}
+              {{ $t(`common.languages.${localeCode}`) }}
             </span>
-          </a>
+          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import { setLocale } from '~/plugins/LocalizedStringTranslation';
-export default {
-  name: 'LocaleSwitcher',
-  data: function () {
-    return {
-      visible: false,
-      currentLocale: this.$i18n.locale.toString(),
-      availableLocales: this.$i18n.availableLocales,
-    };
-  },
-  computed: {},
-  methods: {
-    localeChanged(newLocale) {
-      this.visible = false;
-      if (newLocale !== this.currentLocale) {
-        this.currentLocale = newLocale;
-        setLocale(newLocale);
-        this.$router
-          .push({
-            path: this.$tp(this.$route.path, this.currentLocale, true),
-          })
-          .catch(e => {
-            console.log(e);
-          });
-      }
-    },
-  },
-  mounted() {
-    document.addEventListener('click', () => {
-      this.visible = false;
-    });
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 
-    this.$refs['language-picker'].addEventListener('click', event => {
-      event.stopPropagation();
-    });
-  },
+const visible = ref(false);
+const languagePicker = ref<HTMLElement | null>(null);
+const switchLocalePath = useSwitchLocalePath();
+const localePath = useLocalePath();
+const route = useRoute();
+const { locale, locales } = useI18n();
+
+const currentLocale = computed(() => locale.value.toString());
+const availableLocales = computed(() =>
+  locales.value.map(localeItem => localeItem.code)
+);
+
+const localeChanged = async (newLocale: 'de' | 'en') => {
+  visible.value = false;
+  if (newLocale !== currentLocale.value) {
+    const targetPath =
+      switchLocalePath(newLocale) || localePath(route.fullPath, newLocale);
+    if (targetPath) {
+      await navigateTo(targetPath);
+    }
+  }
 };
+
+const handleDocumentClick = () => {
+  visible.value = false;
+};
+
+const stopPickerClick = (event: MouseEvent) => {
+  event.stopPropagation();
+};
+
+onMounted(() => {
+  document.addEventListener('click', handleDocumentClick);
+  languagePicker.value?.addEventListener('click', stopPickerClick);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleDocumentClick);
+  languagePicker.value?.removeEventListener('click', stopPickerClick);
+});
 </script>
 
 <style scoped>
 .emojiFlag {
-  font-family: 'NotoColorEmojiLimited', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 </style>
