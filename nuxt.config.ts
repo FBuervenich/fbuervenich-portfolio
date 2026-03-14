@@ -42,6 +42,7 @@ export default defineNuxtConfig({
     url: 'https://home.fbuervenich.de',
   },
   i18n: {
+    restructureDir: false,
     defaultLocale: 'en',
     strategy: 'prefix',
     detectBrowserLanguage: false,
