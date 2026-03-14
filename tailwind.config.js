@@ -1,29 +1,13 @@
 module.exports = {
   darkMode: 'class',
-  purge: {
-    content: [
-      './src/**/*.vue',
-      './src/**/*.js',
-      './src/**/*.jsx',
-      './src/**/*.html',
-      './src/**/*.pug',
-      './src/**/*.md',
-      './docs/**/*.md',
-      './blog/**/*.md',
-    ],
-    options: {
-      whitelist: [
-        'body',
-        'html',
-        'img',
-        'a',
-        'g-image',
-        'g-image--lazy',
-        'g-image--loaded',
-        'active',
-      ],
-    },
-  },
+  content: [
+    './src/components/**/*.{vue,js,ts}',
+    './src/layouts/**/*.{vue,js,ts}',
+    './src/pages/**/*.{vue,js,ts}',
+    './src/app.vue',
+    './server/**/*.{ts,js}',
+  ],
+  safelist: ['body', 'html', 'img', 'active'],
   theme: {
     extend: {
       spacing: {
@@ -43,26 +27,19 @@ module.exports = {
         primary: 'var(--bg-background-primary)',
         secondary: 'var(--bg-background-secondary)',
         tertiary: 'var(--bg-background-tertiary)',
-
         form: 'var(--bg-background-form)',
       },
-
       copy: {
         primary: 'var(--text-copy-primary)',
         secondary: 'var(--text-copy-hover)',
       },
-
       'border-color': {
         primary: 'var(--border-border-color-primary)',
       },
-
       transparent: 'transparent',
-
       black: '#000',
       white: '#fff',
-
       primary: 'var(--bg-background-primary)',
-
       blue: '#001629',
       turquoise: '#00a9a5',
       orange: '#FF6F59',
@@ -71,7 +48,6 @@ module.exports = {
         500: '#650D1B',
         700: '#771821',
       },
-
       green: {
         100: '#f0fff4',
         200: '#c6f6d5',
@@ -83,7 +59,6 @@ module.exports = {
         800: '#276749',
         900: '#22543d',
       },
-
       gray: {
         100: '#f7fafc',
         200: '#edf2f7',
@@ -113,20 +88,8 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: [
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        '"Liberation Mono"',
-        '"Courier New"',
-        'monospace',
-      ],
+      mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
     },
   },
-  variants: {
-    // Some useful comment
-  },
-  plugins: [
-    // Some useful comment
-  ],
+  plugins: [],
 };

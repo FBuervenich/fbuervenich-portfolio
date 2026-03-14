@@ -1,17 +1,7 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "allowJs": true,
-    "target": "es5",
-    "module": "es6",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "noImplicitReturns": true,
-    "sourceMap": true,
     "strict": true,
-    "paths": {
-      "~/*": ["./src/*"],
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["./src/**/*"]
+    "baseUrl": "."
+  }
 }

@@ -1,7 +1,2 @@
-import { LocalizedString } from '@/types';
-
-declare module 'vue/types/vue' {
-  interface Vue {
-    $translate: (text: LocalizedString) => string;
-  }
-}
+// Legacy Gridsome translation shim is intentionally kept empty after Nuxt migration.
+export {};
