@@ -9,11 +9,8 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:gridsome/recommended',
-    'plugin:vue/essential',
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
     '@vue/prettier',
   ],

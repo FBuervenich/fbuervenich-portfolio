@@ -1,0 +1,745 @@
+{
+  "career": [
+    {
+      "position": {
+        "en": "Dual study - mathematical technical software developer",
+        "de": "Duales Studium - Mathematisch-technischer Softwareentwickler"
+      },
+      "company": {
+        "en": "Laboratory for Machine Tools and Production Engineering (“WZL der RWTH Aachen”)",
+        "de": "Werkzeugmaschinenlabor WZL der RWTH Aachen"
+      },
+      "startDate": "2015-09-01",
+      "endDate": "2018-08-31",
+      "content": [
+        {
+          "en": "Developing applications for process optimization in the field of production management",
+          "de": "Entwicklung von Anwendungen zur Prozessoptimierung im Bereich des Produktionsmanagements"
+        },
+        {
+          "en": "Focus: web applications (PostgreSQL, Hibernate, Java-Backend, Web-Frontend)",
+          "de": "Schwerpunkt: Webanwendungen (PostgreSQL, Hibernate, Java-Backend, Web-Frontend)"
+        },
+        {
+          "en": "Improving the development process through trial and application of new libraries / technologies and tooling (among others: standardized software-development process, switching from Subversion to Git(Lab), standardized CI/CD process)",
+          "de": "Verbesserung des Entwicklungsprozesses durch Erprobung und Einsatz neuer Bibliotheken/Technologien und Werkzeuge (u.a. standardisierter Sofwareentwicklungs-prozess, Wechsel von Subversion zu Git(lab), standardisierter CI/CD-Prozess)"
+        },
+        {
+          "en": "Training, teaching and supporting new apprentices / colleagues",
+          "de": "Einarbeitung und Unterstützung neuer Auszubildender / Kollegen"
+        }
+      ]
+    },
+    {
+      "position": {
+        "en": "Software developer",
+        "de": "Softwareentwickler"
+      },
+      "company": {
+        "en": "WZL Aachen PS GmbH",
+        "de": "WZL Aachen PS GmbH"
+      },
+      "startDate": "2018-09-01",
+      "endDate": "2019-01-31",
+      "technologies": [
+        {
+          "en": "PostgreSQL",
+          "de": "PostgreSQL"
+        },
+        {
+          "en": "Hibernate",
+          "de": "Hibernate"
+        },
+        {
+          "en": "Java-Backend",
+          "de": "Java-Backend"
+        },
+        {
+          "en": "Python",
+          "de": "Python"
+        },
+        {
+          "en": "Flask",
+          "de": "Flask"
+        },
+        {
+          "en": "Web-Frontend",
+          "de": "Web-Frontend"
+        }
+      ],
+      "content": [
+        {
+          "en": "Planning, coodinating and developing a web application for pre-processing and analysis of big data sets, focused on the context of production (oriented towards the CRISP-DM model)",
+          "de": "Planung, Koordinierung und Entwicklung einer Web-Anwendung für die Vorverarbeitung und Analyse großer Datensätze, mit Schwerpunkt auf dem Produktionskontext (orientiert am CRISP-DM Modell)"
+        },
+        {
+          "en": " PostgreSQL, Java-Backend, Web-Frontend",
+          "de": " PostgreSQL, Java-Backend, Web-Frontend"
+        },
+        {
+          "en": "Developing a Python service to outsource computational logic",
+          "de": "Entwicklung eines Python-Services zur Auslagerung von Berechnungslogik"
+        },
+        {
+          "en": "Implementing typical machine learning methods for data analysis (regression, clustering, classification)",
+          "de": "Implementierung typischer Machine-Learning Methoden zur Datenanalyse (Regression, Clustering, Klassifizierung)"
+        },
+        {
+          "en": "Mentoring and supporting new apprentices / colleagues",
+          "de": "Mentoring und Unterstützung neuer Auszubildender / Kollegen"
+        }
+      ]
+    },
+    {
+      "position": {
+        "en": "Software developer (part time)",
+        "de": "Softwareentwickler (Teilzeit)"
+      },
+      "company": {
+        "en": "WZL Aachen PS GmbH",
+        "de": "WZL Aachen PS GmbH"
+      },
+      "startDate": "2019-02-01",
+      "endDate": "2021-01-31",
+      "technologies": [
+        {
+          "en": "PostgreSQL",
+          "de": "PostgreSQL"
+        },
+        {
+          "en": "Hibernate",
+          "de": "Hibernate"
+        },
+        {
+          "en": "Java-Backend",
+          "de": "Java-Backend"
+        },
+        {
+          "en": "Python",
+          "de": "Python"
+        },
+        {
+          "en": "Flask",
+          "de": "Flask"
+        },
+        {
+          "en": "Web-Frontend",
+          "de": "Web-Frontend"
+        }
+      ],
+      "content": [
+        {
+          "en": "Further developing existing web applications: planning, organizing and implementing functionality for data preprocessing, implementing new methods for data analysis and data visualization",
+          "de": "Weiterentwicklung bestehender Web-Anwendungen: Planung und Implementierung von Funktionalität zur Datenvorverarbeitung, Implementierung neuer Methoden zur Datenanalyse und -Visualisierung"
+        },
+        {
+          "en": "Developing a standardized and efficient CI/CD pipeline",
+          "de": "Entwicklung einer standardisierten und effizienten CI/CD Pipeline"
+        },
+        {
+          "en": "Proving and implementing/integrating new/alternative web technologies: Spring, Vue.js, ESLint",
+          "de": "Erprobung und Implementierung neuer/alternativer Webtechnologien: Spring, Vue.js, ESLint"
+        }
+      ]
+    },
+    {
+      "position": {
+        "en": "Full Stack Software Engineer",
+        "de": "Full Stack Software Engineer"
+      },
+      "company": {
+        "en": "nextAudit",
+        "de": "nextAudit"
+      },
+      "startDate": "2021-02-01",
+      "endDate": "2021-09-30",
+      "technologies": [
+        {
+          "en": "Vue.js",
+          "de": "Vue.js"
+        },
+        {
+          "en": "TypeScript",
+          "de": "TypeScript"
+        },
+        {
+          "en": "Node.js",
+          "de": "Node.js"
+        },
+        {
+          "en": "Express",
+          "de": "Express"
+        },
+        {
+          "en": "GCP/Firebase (Firestore, Cloud Functions, Hosting, Storage)",
+          "de": "GCP/Firebase (Firestore, Cloud Functions, Hosting, Storage)"
+        }
+      ],
+      "content": [
+        {
+          "en": "Planning and implementing the extension of the existing software architecture to integrate a second application",
+          "de": "Planung und Implementierung der Erweiterung der bestehenden Softwarearchitektur zur Integration einer zweiten Anwendung"
+        },
+        {
+          "en": "Converting the existing repositories to one monorepo, implementing the required changes",
+          "de": "Konvertierung der bestehenden Repositories in ein Monorepo, Implementierung der erforderlichen Änderungen"
+        },
+        {
+          "en": "Planning and developing new features for the existing web app",
+          "de": "Planung und Entwicklung neuer Funktionalitäten für die bestehende Web-Anwendung"
+        },
+        {
+          "en": "Concepting new features/functionality together with a team of 5 developers and different customers",
+          "de": "Konzeption neuer Features/Funktionalitäten zusammen mit einem Team aus 5 Entwicklern und verschiedenen Kunden"
+        },
+        {
+          "en": "Onboarding and mentoring for new team members",
+          "de": "Onboarding und Mentoring neuer Teammitglieder"
+        }
+      ]
+    },
+    {
+      "position": {
+        "en": "Senior Software Engineer",
+        "de": "Senior Software Engineer"
+      },
+      "company": {
+        "en": "nextAudit",
+        "de": "nextAudit"
+      },
+      "startDate": "2021-10-01",
+      "endDate": "2025-05-31",
+      "technologies": [],
+      "content": []
+    },
+    {
+      "position": {
+        "en": "Operational Lead Software Engineering",
+        "de": "Operational Lead Software Engineering"
+      },
+      "company": {
+        "en": "nextAudit",
+        "de": "nextAudit"
+      },
+      "startDate": "2022-10-01",
+      "endDate": "2025-05-31",
+      "technologies": [],
+      "content": []
+    },
+    {
+      "position": {
+        "en": "Head of Engineering",
+        "de": "Head of Engineering"
+      },
+      "company": {
+        "en": "nextAudit",
+        "de": "nextAudit"
+      },
+      "startDate": "2025-06-01",
+      "endDate": "Today",
+      "active": true,
+      "content": []
+    }
+  ],
+  "education": [
+    {
+      "institution": {
+        "en": "FH Aachen, University of Applied Sciences",
+        "de": "FH Aachen, University of Applied Sciences"
+      },
+      "degree": {
+        "en": "B.Sc. Scientific Programming",
+        "de": "B.Sc. Scientific Programming"
+      },
+      "title": {
+        "en": "B.Sc.",
+        "de": "B.Sc."
+      },
+      "startDate": "2015-09-01",
+      "endDate": "2018-08-31",
+      "content": [
+        {
+          "en": "Thesis: Development of evaluation approaches for selected classification and regression data mining methods",
+          "de": "Abschlussarbeit: Entwicklung von Bewertungsansätzen für ausgewählte Klassifizierungs- und Regressions-Data-Mining-Verfahren"
+        },
+        {
+          "en": "Final grade: 2.4",
+          "de": "Abschlussnote: 2,4"
+        }
+      ]
+    },
+    {
+      "institution": {
+        "en": "FH Aachen, University of Applied Sciences",
+        "de": "FH Aachen, University of Applied Sciences"
+      },
+      "degree": {
+        "en": "M.Eng. Information Systems Engineering",
+        "de": "M.Eng. Information Systems Engineering"
+      },
+      "title": {
+        "en": "M.Eng.",
+        "de": "M.Eng."
+      },
+      "startDate": "2019-02-01",
+      "endDate": "2021-09-30",
+      "content": [
+        {
+          "en": "Thesis: Development of a customer portal to support remote audits based on the AuditCloud",
+          "de": "Abschlussarbeit: Entwicklung eines Kundenportals zur Unterstützung von Remote Audits auf Basis der AuditCloud"
+        },
+        {
+          "en": "Final grade: 1.4",
+          "de": "Abschlussnote: 1,4"
+        }
+      ]
+    }
+  ],
+  "knowledge": [
+    {
+      "category": {
+        "en": "Driver's license",
+        "de": "Führerschein"
+      },
+      "items": [
+        {
+          "en": "Classes B/BE",
+          "de": "Klassen B/BE"
+        }
+      ]
+    },
+    {
+      "category": {
+        "en": "Language skills",
+        "de": "Sprachkenntnisse"
+      },
+      "items": [
+        {
+          "en": "German (native speacker)",
+          "de": "Deutsch (Muttersprache)"
+        },
+        {
+          "en": "English (fluent)",
+          "de": "Englisch (fließend)"
+        },
+        {
+          "en": "French (basic knowledge)",
+          "de": "Französisch (Grundkenntnisse)"
+        }
+      ]
+    },
+    {
+      "category": {
+        "en": "Technologies",
+        "de": "Technologien"
+      },
+      "items": [
+        {
+          "en": "HTML/CSS",
+          "de": "HTML/CSS"
+        },
+        {
+          "en": "JSON",
+          "de": "JSON"
+        },
+        {
+          "en": "XML",
+          "de": "XML"
+        },
+        {
+          "en": "Webframeworks (Flask, Express)",
+          "de": "Webframeworks (Flask, Express)"
+        },
+        {
+          "en": "Node.js",
+          "de": "Node.js"
+        },
+        {
+          "en": "Vue.js",
+          "de": "Vue.js"
+        },
+        {
+          "en": "GCP / Firebase",
+          "de": "GCP / Firebase"
+        },
+        {
+          "en": "jQuery",
+          "de": "jQuery"
+        },
+        {
+          "en": "Flutter",
+          "de": "Flutter"
+        },
+        {
+          "en": "",
+          "de": ""
+        }
+      ]
+    },
+    {
+      "category": {
+        "en": "Programming languages",
+        "de": "Programmiersprachen"
+      },
+      "items": [
+        {
+          "en": "JavaScript/Typescript (very good)",
+          "de": "JavaScript/Typescript (sehr gut)"
+        },
+        {
+          "en": "Java (very good)",
+          "de": "Java (sehr gut)"
+        },
+        {
+          "en": "Python (good)",
+          "de": "Python (gut)"
+        },
+        {
+          "en": "C/C++ (basic knowledge)",
+          "de": "C/C++ (Grundkenntnisse)"
+        },
+        {
+          "en": "C# (basic knowledge)",
+          "de": "C# (Grundkenntnisse)"
+        },
+        {
+          "en": "PHP (basic knowledge)",
+          "de": "PHP (Grundkenntnisse)"
+        }
+      ]
+    },
+    {
+      "category": {
+        "en": "IT-Skills",
+        "de": "IT-Kenntnisse"
+      },
+      "items": [
+        {
+          "en": "Linux-Desktop/-Server",
+          "de": "Linux-Desktop/-Server"
+        },
+        {
+          "en": "Git",
+          "de": "Git"
+        },
+        {
+          "en": "CI/CD",
+          "de": "CI/CD"
+        },
+        {
+          "en": "NoSQL / Firestore",
+          "de": "NoSQL / Firestore"
+        },
+        {
+          "en": "SQL / PostgreSQL",
+          "de": "SQL / PostgreSQL"
+        },
+        {
+          "en": "Docker",
+          "de": "Docker"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": {
+        "en": "WoPS (Wertstromorientierte Produktionssteuerung)",
+        "de": "WoPS (Value stream oriented production management)"
+      },
+      "heading": {
+        "en": "",
+        "de": ""
+      },
+      "description": {
+        "en": "Web application for analyzing the logistical performance of a production and subsequent simulation of possible adjustments. Focus: Development of new evaluation options and presentation of the results in various views and diagrams.",
+        "de": "Webanwendung zur Analyse der logistischen Leistungsfähigkeit einer Produktion und anschließende Simulation möglicher Anpassungen. Fokus: Entwicklung neuer Auswertungsmöglichkeiten und darstellung der Ergebnisse in verschiedenen Ansichten und Diagrammen."
+      },
+      "projectUrl": "https://gpmc-aachen.de/tools/wops/",
+      "projectUrlDescription": {
+        "en": "Project-website",
+        "de": "Projekt-Website"
+      },
+      "technologies": [
+        {
+          "en": "Java",
+          "de": "Java"
+        },
+        {
+          "en": "Hibernate",
+          "de": "Hibernate"
+        },
+        {
+          "en": "PostgreSQL",
+          "de": "PostgreSQL"
+        },
+        {
+          "en": "Web-Frontend",
+          "de": "Web-Frontend"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Production Analytics Tool",
+        "de": "Production analytics tool"
+      },
+      "heading": {
+        "en": "",
+        "de": ""
+      },
+      "description": {
+        "en": "Web application for exploring (without data science background) large datasets of producing companies. The application allows to explore, preprocess, analyze and evaluate data. Statistical methods for cleaning and various machine learning methods for analyzing the data are used.",
+        "de": "Webanwendung zur Untersuchung (ohne datenwisschenschaftlichen Hintergrund) großer Datensätze produzierender Unternehmen. Die Anwendung erlaubt es, Daten zu explorieren, vorzuverarbeiten, zu analysieren und zu evaluieren. Genutzt werden dafür statistische Verfahren zur Bereinigung und verschiedene Machine-Learning Verfahren zur Analyse der Daten."
+      },
+      "projectUrl": "https://gpmc-aachen.de/tools/production-analytics-tool/",
+      "projectUrlDescription": {
+        "en": "Project-website",
+        "de": "Projekt-Website"
+      },
+      "technologies": [
+        {
+          "en": "Java",
+          "de": "Java"
+        },
+        {
+          "en": "Hibernate",
+          "de": "Hibernate"
+        },
+        {
+          "en": "PostgreSQL",
+          "de": "PostgreSQL"
+        },
+        {
+          "en": "Python",
+          "de": "Python"
+        },
+        {
+          "en": "Flask",
+          "de": "Flask"
+        },
+        {
+          "en": "Web-Frontend",
+          "de": "Web-Frontend"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Personal porfolio website and CV generator",
+        "de": "Persönliche Portfolio-Website und Lebenslauf-Generator"
+      },
+      "heading": {
+        "en": "",
+        "de": ""
+      },
+      "description": {
+        "en": "I created my personal portfolio website to learn more about static site generators and to use Gridsome in a project. To avoid having to maintain the underlying data multiple times, I also created a React application from my existing resume. The resume generator and the portfolio website use the same data source (a simple HTTP server).",
+        "de": "Meine persönliche Portfolio-Website entstand, um mehr über Static-Site-Generatoren zu lernen und Gridsome in einem Projekt einzusetzen. Um die zugrundeliegenden Daten nicht mehrfach pflegen zu müssen, habe ich außerdem aus meinen bestehenden Lebenslauf eine React-Anwendung erstellt. Der Lebenslauf-Generator und die Portfolio-Website nutzen die gleiche Datenquelle (eine simpler HTTP-Server)."
+      },
+      "projectUrl": "https://github.com/FBuervenich/",
+      "projectUrlDescription": {
+        "en": "Github profile",
+        "de": "Github-Profil"
+      },
+      "technologies": [
+        {
+          "en": "Vue.js",
+          "de": "Vue.js"
+        },
+        {
+          "en": "React.js",
+          "de": "React.js"
+        },
+        {
+          "en": "TypeScript",
+          "de": "TypeScript"
+        },
+        {
+          "en": "Gridsome",
+          "de": "Gridsome"
+        },
+        {
+          "en": "Netlify + Heroku",
+          "de": "Netlify + Heroku"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Hautua Coffee",
+        "de": "Hautua Coffee"
+      },
+      "heading": {
+        "en": "",
+        "de": ""
+      },
+      "description": {
+        "en": "A coffee app for coffee lovers that we built to keep track of bean varieties and share brewing recipes with friends.",
+        "de": "Eine Kaffee-App für Kaffee-Liebhaber, die wir erstellt haben, um den Überblick über Bohnensorten zu behalten und Brüh-Rezepte mit Freunden teilen zu können."
+      },
+      "projectUrl": "https://hautua.coffee/",
+      "projectUrlDescription": {
+        "en": "Project website",
+        "de": "Projekt-Website"
+      },
+      "technologies": [
+        {
+          "en": "Vue.js",
+          "de": "Vue.js"
+        },
+        {
+          "en": "TypeScript",
+          "de": "TypeScript"
+        },
+        {
+          "en": "Capacitor",
+          "de": "Capacitor"
+        },
+        {
+          "en": "Java",
+          "de": "Java"
+        },
+        {
+          "en": "Spring Boot",
+          "de": "Spring Boot"
+        },
+        {
+          "en": "Neo4J",
+          "de": "Neo4J"
+        },
+        {
+          "en": "GCP",
+          "de": "GCP"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "AuditCloud (nextAudit)",
+        "de": "AuditCloud (nextAudit)"
+      },
+      "heading": {
+        "en": "",
+        "de": ""
+      },
+      "description": {
+        "en": "A SaaS product by nextAudit to turn the auditing process into a pleasant, digital solution.",
+        "de": "Ein SaaS-Produkt von nextAudit, um den Auditprozess in eine angenehme, digitale Lösung zu verwandeln."
+      },
+      "projectUrl": "https://next-audit.de/auditcloud/",
+      "projectUrlDescription": {
+        "en": "Product website",
+        "de": "Produkt-Website"
+      },
+      "technologies": [
+        {
+          "en": "Vue.js",
+          "de": "Vue.js"
+        },
+        {
+          "en": "TypeScript",
+          "de": "TypeScript"
+        },
+        {
+          "en": "Node.js",
+          "de": "Node.js"
+        },
+        {
+          "en": "Express",
+          "de": "Express"
+        },
+        {
+          "en": "GCP/Firebase (Firestore, Cloud Functions, Hosting, Storage)",
+          "de": "GCP/Firebase (Firestore, Cloud Functions, Hosting, Storage)"
+        }
+      ]
+    }
+  ],
+  "qualification": [
+    {
+      "type": {
+        "en": "IHK-certification",
+        "de": "IHK-Zertifizierung"
+      },
+      "title": {
+        "en": "“Junior Manager“",
+        "de": "„Junior Manager“"
+      },
+      "startDate": "2013-09-01",
+      "endDate": "2014-09-30",
+      "content": [
+        {
+          "en": "Modules in the fields: soft skills, business basics, project management",
+          "de": "Module in den Bereichen Soft Skills, Business Basics und Projektmanagement"
+        },
+        {
+          "en": "Final project: business plan - Digitalization of customer communication in new media (in behalf of the AachenMünchener insurance",
+          "de": "Abschlussprojekt: Businessplan – Digitalisierung von Kundenkommunikation in neuen Medien (i.A. der AachenMünchener Versicherung)"
+        }
+      ]
+    }
+  ],
+  "personal": {
+    "firstName": "Florentin",
+    "lastName": "Bürvenich",
+    "address": {
+      "en": "Kaiser-Friedrich-Allee 2A, 52074 Aachen, Germany",
+      "de": "Kaiser-Friedrich-Allee 2A, 52074 Aachen"
+    },
+    "location": {
+      "en": "Aachen",
+      "de": "Aachen"
+    },
+    "privateEmail": "florentin.buervenich@gmail.com",
+    "publicEmail": "fbuervenich@pm.me",
+    "linkedinUrl": "https://www.linkedin.com/in/fbuervenich/",
+    "xingUrl": "https://www.xing.com/profile/Florentin_Buervenich",
+    "githubUrl": "https://github.com/FBuervenich",
+    "phoneNumber": "+49 1578 5726384",
+    "birthDate": {
+      "en": "10/21/1996",
+      "de": "21.10.1996"
+    },
+    "birthPlace": {
+      "en": "Aachen",
+      "de": "Aachen"
+    },
+    "nationality": {
+      "en": "German",
+      "de": "Deutsch"
+    },
+    "hobbies": [
+      {
+        "en": "fitness",
+        "de": "Fitness"
+      },
+      {
+        "en": "hiking",
+        "de": "Wandern"
+      },
+      {
+        "en": "adventure travel",
+        "de": "Abenteuerreisen"
+      },
+      {
+        "en": "programming",
+        "de": "Programmieren"
+      },
+      {
+        "en": "cooking",
+        "de": "Kochen"
+      }
+    ],
+    "interests": [
+      {
+        "en": "technology",
+        "de": "Technologie"
+      },
+      {
+        "en": "music",
+        "de": "Musik"
+      }
+    ]
+  }
+}

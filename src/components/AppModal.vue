@@ -1,19 +1,16 @@
 <template>
   <Transition name="fade">
-    <div v-if="value">
-      <!--Overlay Effect-->
+    <div v-if="modelValue">
       <div
-        class="fixed z-40 inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
         id="my-modal"
+        class="fixed z-40 inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
       ></div>
       <div
         class="fixed z-50 inset-0 w-full h-screen flex items-center justify-center bg-semi-75"
         @click.self="closeModal"
       >
         <div class="relative px-4 w-full max-w-md h-full md:h-auto">
-          <!-- Modal content -->
           <div class="relative bg-white rounded shadow dark:bg-gray-700">
-            <!-- Modal header -->
             <div class="flex justify-end p-2">
               <button
                 type="button"
@@ -34,7 +31,6 @@
                 </svg>
               </button>
             </div>
-            <!-- Modal body -->
             <div class="p-6 pt-0 text-center">
               <slot />
             </div>
@@ -45,22 +41,18 @@
   </Transition>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
+<script setup lang="ts">
+defineProps<{
+  modelValue: boolean;
+}>();
 
-export default Vue.extend({
-  props: {
-    value: { type: Boolean, required: true },
-  },
-  data: function () {
-    return {};
-  },
-  methods: {
-    closeModal() {
-      this.$emit('input', false);
-    },
-  },
-});
+const emit = defineEmits<{
+  'update:modelValue': [value: boolean];
+}>();
+
+function closeModal() {
+  emit('update:modelValue', false);
+}
 </script>
 
 <style scoped>
@@ -68,7 +60,7 @@ export default Vue.extend({
 .fade-leave-active {
   transition: all 0.3s;
 }
-.fade-enter,
+.fade-enter-from,
 .fade-leave-to {
   opacity: 0;
 }

@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="md:w-2/5 w-0">
-          <g-image src="../../static/gdpr.svg" alt="Privacy policy" />
+          <g-image src="/gdpr.svg" alt="Privacy policy" />
         </div>
       </div>
     </div>

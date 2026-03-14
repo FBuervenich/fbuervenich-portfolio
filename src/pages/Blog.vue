@@ -1,75 +1,68 @@
 <template>
   <Layout>
     <div class="container-inner mx-auto py-16">
-      <div
-        v-for="post in $page.posts.edges"
-        :key="post.id"
-        class="post border-gray-400 border-b mb-12"
-      >
+      <div v-for="post in posts" :key="post.id" class="post border-gray-400 border-b mb-12">
         <h2 class="text-3xl font-bold">
-          <g-link :to="post.node.path" class="text-copy-primary">
-            {{ post.node.title }}
+          <g-link :to="localePath(post.path)" class="text-copy-primary">
+            {{ post.title }}
           </g-link>
         </h2>
         <div class="text-copy-secondary mb-4">
-          <span>{{ post.node.date }}</span>
+          <span>{{ post.date }}</span>
           <span>&middot;</span>
-          <span>{{ post.node.timeToRead }} min read</span>
+          <span>{{ post.timeToRead }} min read</span>
         </div>
 
         <div class="text-lg mb-4">
-          {{ post.node.summary }}
+          {{ post.summary }}
         </div>
 
         <div class="mb-8">
-          <g-link :to="post.node.path" class="font-bold uppercase">
-            Read More
-          </g-link>
+          <g-link :to="localePath(post.path)" class="font-bold uppercase">Read More</g-link>
         </div>
       </div>
-      <!-- end post -->
 
       <pagination-posts
-        v-if="$page.posts.pageInfo.totalPages > 1"
-        base="/blog"
-        :totalPages="$page.posts.pageInfo.totalPages"
-        :currentPage="$page.posts.pageInfo.currentPage"
+        v-if="pageInfo.totalPages > 1"
+        :base="localePath('/blog')"
+        :total-pages="pageInfo.totalPages"
+        :current-page="pageInfo.currentPage"
       />
     </div>
   </Layout>
 </template>
 
-<page-query>
-query Posts ($page: Int) {
-  posts: allPost (sortBy: "date", order: DESC, perPage: 3, page: $page) @paginate {
-    totalCount
-    pageInfo {
-      totalPages
-      currentPage
-    }
-    edges {
-      node {
-        id
-        title
-        date (format: "MMMM D, Y")
-        summary
-        timeToRead
-        path
-      }
-    }
-  }
+<script setup lang="ts">
+interface BlogPostItem {
+  id: string;
+  title: string;
+  date: string;
+  summary: string;
+  timeToRead: number;
+  path: string;
 }
-</page-query>
 
-<script>
-import PaginationPosts from '../components/PaginationPosts';
+interface BlogApiResponse {
+  items: BlogPostItem[];
+  pageInfo: {
+    totalPages: number;
+    currentPage: number;
+  };
+}
 
-export default {
-  metaInfo: {
-    title: 'Blog',
-  },
-  components: {
-    PaginationPosts,
-  },
-};
+const localePath = useLocalePath();
+
+const { data } = await useAsyncData<BlogApiResponse>('blog-page-1', () =>
+  $fetch('/api/blog', {
+    query: {
+      page: 1,
+      perPage: 3,
+    },
+  }),
+);
+
+const posts = computed(() => data.value?.items || []);
+const pageInfo = computed(() => data.value?.pageInfo || { totalPages: 1, currentPage: 1 });
+
+useHead({ title: 'Blog' });
 </script>

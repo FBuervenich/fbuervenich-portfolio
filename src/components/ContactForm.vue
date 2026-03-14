@@ -2,10 +2,7 @@
   <div>
     <h2 class="font-bold mb-6">{{ $t('components.contact_form.title') }}</h2>
 
-    <div
-      class="absolute right-0 top-0"
-      style="transform: translate(100%) rotate(180deg)"
-    >
+    <div class="absolute right-0 top-0" style="transform: translate(100%) rotate(180deg)">
       <svg width="170px" height="170px">
         <use xlink:href="#dots-triangle" />
       </svg>
@@ -13,13 +10,13 @@
 
     <div class="text-lg sm:text-lg mb-16">
       <form
-        @submit.prevent="handleSubmit"
         class="mb-12"
         data-netlify="true"
         netlify-honeypot="botField"
         name="contact"
         method="POST"
         action="/success/"
+        @submit.prevent="handleSubmit"
       >
         <div class="flex flex-wrap mb-6 -mx-4">
           <div class="hidden">
@@ -32,10 +29,10 @@
             </label>
 
             <input
+              id="name"
               v-model="formData.name"
               type="text"
               name="name"
-              id="name"
               :placeholder="$t('components.contact_form.placeholder_name')"
               class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
               required
@@ -48,10 +45,10 @@
             </label>
 
             <input
+              id="email"
               v-model="formData.email"
               type="email"
               name="email"
-              id="email"
               :placeholder="$t('components.contact_form.placeholder_mail')"
               class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none focus:border-red-700 mb-2 p-4"
               required
@@ -65,8 +62,8 @@
           </label>
 
           <textarea
-            v-model="formData.message"
             id="message"
+            v-model="formData.message"
             rows="5"
             name="message"
             class="block w-full bg-background-form border border-border-color-primary shadow rounded outline-none appearance-none focus:border-red-700 mb-2 px-4 py-4"
@@ -85,9 +82,7 @@
       </form>
     </div>
     <AppModal v-model="successModalOpen">
-      <div
-        class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-5"
-      >
+      <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-green-100 mb-5">
         <svg
           class="h-6 w-6 text-green-600"
           fill="none"
@@ -122,10 +117,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import AppModal from './AppModal.vue';
-
+<script setup lang="ts">
 interface FormData {
   name: string;
   email: string;
@@ -133,48 +125,35 @@ interface FormData {
   botField: string;
 }
 
-export default Vue.extend({
-  components: {
-    AppModal,
-  },
-  data: function (): {
-    formData: FormData;
-    successModalOpen: boolean;
-  } {
-    return {
-      formData: {
-        name: '',
-        email: '',
-        message: '',
-        botField: '',
-      },
-      successModalOpen: false,
-    };
-  },
-  methods: {
-    encode(data: { 'form-name': string; [key: string]: string }): string {
-      return Object.keys(data)
-        .map(
-          key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-        )
-        .join('&');
-    },
-    handleSubmit(e: { target: HTMLInputElement }) {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({
-          'form-name': e.target.getAttribute('name') ?? '',
-          ...this.formData,
-        }),
-      })
-        .then(() => {
-          this.successModalOpen = true;
-        })
-        .catch(error => alert(error));
-    },
-  },
+const formData = reactive<FormData>({
+  name: '',
+  email: '',
+  message: '',
+  botField: '',
 });
-</script>
 
-<style lang="scss" scoped></style>
+const successModalOpen = ref(false);
+
+function encode(data: Record<string, string>): string {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+}
+
+async function handleSubmit(event: Event) {
+  const target = event.target as HTMLFormElement;
+  try {
+    await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': target.getAttribute('name') || '',
+        ...formData,
+      }),
+    });
+    successModalOpen.value = true;
+  } catch (error) {
+    alert(error);
+  }
+}
+</script>

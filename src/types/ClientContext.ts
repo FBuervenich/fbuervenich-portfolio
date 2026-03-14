@@ -1,12 +1,4 @@
-import VueRouter from 'vue-router';
-import { MetaInfo } from 'vue-meta';
-import { IVueI18n } from 'vue-i18n';
-
+// Legacy Gridsome client context type retained as placeholder for compatibility.
 export interface ClientContext {
-  appOptions: {
-    i18n: IVueI18n;
-    [x: string]: unknown;
-  };
-  router: VueRouter;
-  head: MetaInfo;
+  [x: string]: unknown;
 }
