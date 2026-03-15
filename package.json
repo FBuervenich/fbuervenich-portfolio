@@ -18,7 +18,7 @@
     "dotenv": "^16.0.0",
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
-    "nuxt": "^4.1.1",
+    "nuxt": "^4.4.2",
     "posthog-js": "^1.310.1"
   },
   "devDependencies": {
