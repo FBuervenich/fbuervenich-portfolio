@@ -2,6 +2,7 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser',
     project: './tsconfig.json',
+    extraFileExtensions: ['.vue'],
   },
   env: {
     browser: true,
@@ -9,35 +10,25 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:gridsome/recommended',
-    'plugin:vue/essential',
-    'plugin:vue/recommended',
+    'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
-    '@vue/prettier',
   ],
   rules: {
-    semi: ['error', 'always'],
-    'arrow-parens': ['error', 'always'],
-    'comma-dangle': ['error', 'always-multiline'],
-    'vue/attributes-order': 'off',
-    '@typescript-eslint/indent': ['error', 2],
-    '@typescript-eslint/explicit-function-return-type': [
-      'error',
-      {
-        allowExpressions: true,
-        allowHigherOrderFunctions: true,
-        allowTypedFunctionExpressions: true,
-      },
-    ],
+    'no-undef': 'off',
+    'prettier/prettier': 'warn',
   },
   overrides: [
     {
-      files: ['*.vue'],
+      files: ['app/pages/**/*.vue', 'app/layouts/**/*.vue', 'app/error.vue'],
       rules: {
-        indent: 'off',
-        '@typescript-eslint/indent': 'off',
+        'vue/multi-word-component-names': 'off',
+      },
+    },
+    {
+      files: ['app/components/Layout.vue'],
+      rules: {
+        'vue/multi-word-component-names': 'off',
       },
     },
   ],
