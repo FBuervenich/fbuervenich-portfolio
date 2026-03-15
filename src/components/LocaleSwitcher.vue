@@ -61,7 +61,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue';
 const visible = ref(false);
 const languagePicker = ref<HTMLElement | null>(null);
 const switchLocalePath = useSwitchLocalePath();
-const localePath = useLocalePath();
+const localeRoute = useLocaleRoute();
 const route = useRoute();
 const { locale, locales } = useI18n();
 
@@ -73,8 +73,16 @@ const availableLocales = computed(() =>
 const localeChanged = async (newLocale: 'de' | 'en') => {
   visible.value = false;
   if (newLocale !== currentLocale.value) {
+    const localizedRoute = localeRoute(
+      {
+        path: route.path,
+        query: route.query,
+        hash: route.hash,
+      },
+      newLocale
+    );
     const targetPath =
-      switchLocalePath(newLocale) || localePath(route.fullPath, newLocale);
+      switchLocalePath(newLocale) || localizedRoute?.fullPath;
     if (targetPath) {
       await navigateTo(targetPath);
     }

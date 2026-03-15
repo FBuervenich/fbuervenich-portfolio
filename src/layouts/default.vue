@@ -8,7 +8,7 @@
         class="container mx-auto flex flex-wrap justify-between items-center py-8"
       >
         <div class="logo-wrap">
-          <g-link :to="localePath('/')" @click="scrollToTop">
+          <g-link :to="resolveLocalePath('/')" @click="scrollToTop">
             <g-image :src="logoSrc" class="logo-image" alt="logo" />
           </g-link>
         </div>
@@ -90,7 +90,7 @@
           </li>
           <li>
             <g-link
-              :to="localePath('/career')"
+              :to="resolveLocalePath('/career')"
               class="text-copy-primary hover:text-gray-600"
             >
               {{ $t('layouts.default.navigation_career') }}
@@ -118,29 +118,15 @@
             }}
           </div>
           <div>
-            <a
-              href="/rss.xml"
-              class="text-white hover:text-gray-400 font-normal"
-            >
-              {{ $t('layouts.default.footer_rss') }}
-            </a>
-            |
-            <a
-              href="/sitemap.xml"
-              class="text-white hover:text-gray-400 font-normal"
-            >
-              {{ $t('layouts.default.footer_sitemap') }}
-            </a>
-            |
             <NuxtLink
-              :to="localePath('/imprint')"
+              :to="resolveLocalePath('/imprint')"
               class="text-white hover:text-gray-400 font-normal"
             >
               {{ $t('layouts.default.footer_imprint') }}
             </NuxtLink>
             |
             <NuxtLink
-              :to="localePath('/privacy')"
+              :to="resolveLocalePath('/privacy')"
               class="text-white hover:text-gray-400 font-normal"
             >
               {{ $t('layouts.default.footer_privacy') }}
@@ -249,7 +235,8 @@
 import { usePortfolioPersonal } from '../composables/usePortfolioPersonal';
 
 const route = useRoute();
-const localePath = useLocalePath();
+const localeRoute = useLocaleRoute();
+const resolveLocalePath = (path: string) => localeRoute(path)?.fullPath || path;
 
 const { data: personalData } = await usePortfolioPersonal();
 
@@ -259,7 +246,7 @@ const theme = ref('theme-light');
 const normalizeTheme = (value: string | null) =>
   value === 'theme-dark' || value === 'theme-light' ? value : 'theme-light';
 
-const isHomeRoute = computed(() => route.path === localePath('/'));
+const isHomeRoute = computed(() => route.path === resolveLocalePath('/'));
 const logoSrc = computed(() =>
   theme.value === 'theme-dark' ? '/logo_dark_mode.svg' : '/logo.svg'
 );
@@ -281,7 +268,7 @@ const updateTheme = (newTheme: string) => {
   }
 };
 
-const sectionLink = (hash: string) => `${localePath('/')}${hash}`;
+const sectionLink = (hash: string) => `${resolveLocalePath('/')}${hash}`;
 
 onMounted(() => {
   theme.value = normalizeTheme(localStorage.getItem('theme'));
