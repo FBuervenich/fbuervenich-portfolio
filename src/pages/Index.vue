@@ -144,7 +144,7 @@ import { usePortfolioProjects } from '../composables/usePortfolioProjects';
 const { data: personalData } = await usePortfolioPersonal();
 const { data: projectsData } = await usePortfolioProjects();
 
-const steps = computed<PortfolioProject[]>(() => [...projectsData.value].reverse());
+const steps = computed<PortfolioProject[]>(() => [...projectsData.value]);
 
 useHead({ title: 'Home' });
 

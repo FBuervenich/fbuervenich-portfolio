@@ -1,6 +1,7 @@
 import posthog from 'posthog-js';
+import { useRouter } from '#imports';
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   const isRealEnvironment =
     process.env.NODE_ENV === 'production' &&
     typeof window !== 'undefined' &&
@@ -17,7 +18,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     capture_pageview: false,
   });
 
-  nuxtApp.$router.afterEach((to) => {
+  const router = useRouter();
+
+  router.afterEach(to => {
     posthog.capture('$pageview', {
       $current_url: to.fullPath,
     });

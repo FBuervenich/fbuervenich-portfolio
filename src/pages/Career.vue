@@ -68,7 +68,7 @@ import { usePortfolioCareer } from '../composables/usePortfolioCareer';
 const { t } = useI18n();
 const { data: careerData } = await usePortfolioCareer();
 
-const steps = computed<PortfolioCareerStep[]>(() => [...careerData.value].reverse());
+const steps = computed<PortfolioCareerStep[]>(() => [...careerData.value]);
 
 useHead({ title: 'Career' });
 
