@@ -27,8 +27,6 @@
     "default": {
       "footer_imprint": "Imprint",
       "footer_privacy": "Privacy Policy",
-      "footer_rss": "RSS Feed",
-      "footer_sitemap": "Sitemap",
       "navigation_about": "About",
       "navigation_career": "Career",
       "navigation_contact": "Contact",

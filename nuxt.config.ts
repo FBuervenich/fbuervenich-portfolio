@@ -57,9 +57,4 @@ export default defineNuxtConfig({
     ],
   },
   sitemap: {},
-  nitro: {
-    prerender: {
-      routes: ['/rss.xml'],
-    },
-  },
 });
