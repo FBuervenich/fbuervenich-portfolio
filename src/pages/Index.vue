@@ -137,26 +137,14 @@
 </template>
 
 <script setup lang="ts">
-import type { LocalizedString } from '../types';
+import type { LocalizedString, PortfolioProject } from '../types';
 import { usePortfolioPersonal } from '../composables/usePortfolioPersonal';
 import { usePortfolioProjects } from '../composables/usePortfolioProjects';
-
-interface ProjectStep {
-  id: string;
-  name: LocalizedString;
-  description: LocalizedString;
-  projectUrl?: string;
-  projectUrlDescription?: LocalizedString;
-  technologies?: LocalizedString[];
-}
 
 const { data: personalData } = await usePortfolioPersonal();
 const { data: projectsData } = await usePortfolioProjects();
 
-const steps = computed<ProjectStep[]>(() => {
-  const projects = (projectsData.value as ProjectStep[]) || [];
-  return [...projects].reverse();
-});
+const steps = computed<PortfolioProject[]>(() => [...projectsData.value].reverse());
 
 useHead({ title: 'Home' });
 

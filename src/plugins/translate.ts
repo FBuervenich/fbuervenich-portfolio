@@ -1,7 +1,9 @@
 import type { LocalizedString } from '../types';
 
-export default defineNuxtPlugin((nuxtApp) => {
-  const translate = (text?: LocalizedString) => {
+type TranslateFn = (text?: LocalizedString) => string;
+
+export default defineNuxtPlugin<{ translate: TranslateFn }>((nuxtApp) => {
+  const translate: TranslateFn = (text) => {
     if (!text) {
       return '';
     }

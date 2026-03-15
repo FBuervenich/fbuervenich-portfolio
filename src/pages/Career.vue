@@ -62,26 +62,13 @@
 </template>
 
 <script setup lang="ts">
-import type { LocalizedString } from '../types';
+import type { LocalizedString, PortfolioCareerStep } from '../types';
 import { usePortfolioCareer } from '../composables/usePortfolioCareer';
-
-interface CareerStep {
-  id: string;
-  position: LocalizedString;
-  company: LocalizedString;
-  startDate: string;
-  endDate: string;
-  technologies?: LocalizedString[];
-  content?: LocalizedString[];
-}
 
 const { t } = useI18n();
 const { data: careerData } = await usePortfolioCareer();
 
-const steps = computed<CareerStep[]>(() => {
-  const careerSteps = (careerData.value as CareerStep[]) || [];
-  return [...careerSteps].reverse();
-});
+const steps = computed<PortfolioCareerStep[]>(() => [...careerData.value].reverse());
 
 useHead({ title: 'Career' });
 
@@ -108,7 +95,7 @@ function getCompanyKey(company: LocalizedString): string {
   return `${company.en}::${company.de}`;
 }
 
-function getDurationString(stepNode: CareerStep): string {
+function getDurationString(stepNode: PortfolioCareerStep): string {
   const startDate = new Date(stepNode.startDate);
   const endDate = Number.isNaN(Date.parse(stepNode.endDate))
     ? new Date()

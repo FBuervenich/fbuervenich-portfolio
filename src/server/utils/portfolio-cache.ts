@@ -1,5 +1,10 @@
 import { readFile } from 'fs/promises';
 import { resolve } from 'path';
+import type {
+  PortfolioCareerStep,
+  PortfolioPersonal,
+  PortfolioProject,
+} from '../../types';
 
 async function readJson<T>(fileName: string): Promise<T> {
   const raw = await readFile(resolve(process.cwd(), '.cache', fileName), 'utf8');
@@ -7,7 +12,7 @@ async function readJson<T>(fileName: string): Promise<T> {
 }
 
 export async function readPersonalCache() {
-  const personalData = await readJson<Record<string, unknown>>('personal.json');
+  const personalData = await readJson<PortfolioPersonal>('personal.json');
   return {
     firstName: personalData.firstName,
     lastName: personalData.lastName,
@@ -19,7 +24,7 @@ export async function readPersonalCache() {
 }
 
 export async function readProjectsCache() {
-  const projectsData = await readJson<Record<string, unknown>[]>('projects.json');
+  const projectsData = await readJson<PortfolioProject[]>('projects.json');
   return projectsData.map((project) => ({
     id: project.id,
     name: project.name,
@@ -31,7 +36,7 @@ export async function readProjectsCache() {
 }
 
 export async function readCareerCache() {
-  const careerData = await readJson<Record<string, unknown>[]>('career.json');
+  const careerData = await readJson<PortfolioCareerStep[]>('career.json');
   return careerData.map((step) => ({
     id: step.id,
     position: step.position,
