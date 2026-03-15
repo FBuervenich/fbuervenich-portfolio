@@ -12,8 +12,8 @@
     "lint:fix": "yarn lint:check --fix"
   },
   "dependencies": {
+    "@nuxt/image": "^2.0.0",
     "@nuxtjs/i18n": "^10.1.2",
-    "@nuxtjs/sitemap": "^7.4.7",
     "@nuxtjs/tailwindcss": "^6.13.1",
     "dotenv": "^16.0.0",
     "gray-matter": "^4.0.3",

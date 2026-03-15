@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="md:w-2/5 w-0">
-          <g-image src="/content_creator.svg" alt="Imprint" />
+          <img src="/content_creator.svg" alt="Imprint" loading="lazy" />
         </div>
       </div>
     </div>

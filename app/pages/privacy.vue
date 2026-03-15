@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="md:w-2/5 w-0">
-          <g-image src="/gdpr.svg" alt="Privacy policy" />
+          <img src="/gdpr.svg" alt="Privacy policy" loading="lazy" />
         </div>
       </div>
     </div>

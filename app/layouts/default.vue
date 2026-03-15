@@ -8,9 +8,9 @@
         class="container mx-auto flex flex-wrap justify-between items-center py-8"
       >
         <div class="logo-wrap">
-          <g-link :to="resolveLocalePath('/')" @click="scrollToTop">
-            <g-image :src="logoSrc" class="logo-image" alt="logo" />
-          </g-link>
+          <NuxtLink :to="resolveLocalePath('/')" @click="scrollToTop">
+            <img :src="logoSrc" class="logo-image" alt="logo" loading="lazy" />
+          </NuxtLink>
         </div>
         <div class="block lg:hidden">
           <button
@@ -48,13 +48,13 @@
             >
               {{ $t('layouts.default.navigation_projects') }}
             </a>
-            <g-link
+            <NuxtLink
               v-else
               :to="sectionLink('#projects')"
               class="text-copy-primary hover:text-gray-600"
             >
               {{ $t('layouts.default.navigation_projects') }}
-            </g-link>
+            </NuxtLink>
           </li>
           <li>
             <a
@@ -64,13 +64,13 @@
             >
               {{ $t('layouts.default.navigation_about') }}
             </a>
-            <g-link
+            <NuxtLink
               v-else
               :to="sectionLink('#about')"
               class="text-copy-primary hover:text-gray-600"
             >
               {{ $t('layouts.default.navigation_about') }}
-            </g-link>
+            </NuxtLink>
           </li>
           <li>
             <a
@@ -80,21 +80,21 @@
             >
               {{ $t('layouts.default.navigation_contact') }}
             </a>
-            <g-link
+            <NuxtLink
               v-else
               :to="sectionLink('#contact')"
               class="text-copy-primary hover:text-gray-600"
             >
               {{ $t('layouts.default.navigation_contact') }}
-            </g-link>
+            </NuxtLink>
           </li>
           <li>
-            <g-link
+            <NuxtLink
               :to="resolveLocalePath('/career')"
               class="text-copy-primary hover:text-gray-600"
             >
               {{ $t('layouts.default.navigation_career') }}
-            </g-link>
+            </NuxtLink>
           </li>
         </ul>
       </nav>

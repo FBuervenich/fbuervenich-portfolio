@@ -14,10 +14,11 @@
         </div>
       </div>
       <div class="mt-8 sm:mt-0 w-1/5">
-        <g-image
+        <img
           src="/developer_activity.svg"
           alt="hero"
           class="mx-auto sm:mx-0"
+          loading="lazy"
         />
       </div>
     </div>
@@ -103,10 +104,13 @@
           class="flex flex-col sm:flex-row justify-between items-center mb-16"
         >
           <div>
-            <g-image
+            <NuxtImg
               src="/Florentin.png"
               alt="avatar"
               class="w-32 h-32 rounded-full mb-8 lg:mb-0"
+              loading="lazy"
+              format="webp"
+              sizes="128px"
             />
           </div>
           <div class="flex-1 text-lg sm:text-xl ml-6">

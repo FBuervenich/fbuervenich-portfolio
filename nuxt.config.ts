@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
-  modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/sitemap'],
+  modules: ['@nuxt/image', '@nuxtjs/i18n', '@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css', '~/assets/css/github-markdown.css'],
   runtimeConfig: {
     public: {
@@ -32,9 +32,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-  site: {
-    url: 'https://home.fbuervenich.de',
-  },
   i18n: {
     defaultLocale: 'en',
     strategy: 'prefix',
@@ -48,5 +45,4 @@ export default defineNuxtConfig({
       { code: 'en', language: 'en-US', file: 'en.json', name: 'English' },
     ],
   },
-  sitemap: {},
 });

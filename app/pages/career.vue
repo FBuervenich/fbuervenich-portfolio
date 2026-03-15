@@ -54,7 +54,7 @@
           </ol>
         </div>
         <div class="md:w-1/5 w-0 pl-10">
-          <g-image src="/resume.svg" alt="Resume" />
+          <img src="/resume.svg" alt="Resume" loading="lazy" />
         </div>
       </div>
     </div>
