@@ -1,11 +1,12 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    './src/components/**/*.{vue,js,ts}',
-    './src/layouts/**/*.{vue,js,ts}',
-    './src/pages/**/*.{vue,js,ts}',
-    './src/app.vue',
+    './app/components/**/*.{vue,js,ts}',
+    './app/layouts/**/*.{vue,js,ts}',
+    './app/pages/**/*.{vue,js,ts}',
+    './app/app.vue',
     './server/**/*.{ts,js}',
+    './shared/**/*.{ts,js}',
   ],
   safelist: ['body', 'html', 'img', 'active'],
   theme: {
@@ -88,7 +89,14 @@ module.exports = {
         '"Noto Color Emoji"',
       ],
       serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+      mono: [
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
     },
   },
   plugins: [],

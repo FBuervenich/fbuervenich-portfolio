@@ -13,14 +13,20 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:vue/vue3-recommended',
     'plugin:prettier/recommended',
-    'eslint-plugin-prettier/recommended',
   ],
   rules: {
     'no-undef': 'off',
+    'prettier/prettier': 'warn',
   },
   overrides: [
     {
-      files: ['src/pages/**/*.vue', 'src/layouts/**/*.vue'],
+      files: ['app/pages/**/*.vue', 'app/layouts/**/*.vue', 'app/error.vue'],
+      rules: {
+        'vue/multi-word-component-names': 'off',
+      },
+    },
+    {
+      files: ['app/components/Layout.vue'],
       rules: {
         'vue/multi-word-component-names': 'off',
       },

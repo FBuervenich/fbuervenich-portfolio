@@ -1,11 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
-  srcDir: 'src/',
-  dir: {
-    public: '../public',
-  },
   modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss', '@nuxtjs/sitemap'],
-  css: ['~/css/main.css', '~/css/github-markdown.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/github-markdown.css'],
   runtimeConfig: {
     public: {
       siteUrl: 'https://home.fbuervenich.de',
@@ -40,14 +36,10 @@ export default defineNuxtConfig({
     url: 'https://home.fbuervenich.de',
   },
   i18n: {
-    restructureDir: false,
     defaultLocale: 'en',
     strategy: 'prefix',
     detectBrowserLanguage: false,
     langDir: 'locales',
-    bundle: {
-      optimizeTranslationDirective: false,
-    },
     compilation: {
       strictMessage: false,
     },
