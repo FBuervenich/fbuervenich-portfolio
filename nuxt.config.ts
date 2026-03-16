@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   css: ['~/assets/css/main.css', '~/assets/css/github-markdown.css'],
   runtimeConfig: {
     public: {
-      siteUrl: 'https://home.fbuervenich.de',
+      siteUrl: 'https://portfolio.fbuervenich.de',
     },
   },
   app: {
@@ -25,6 +25,16 @@ export default defineNuxtConfig({
         },
       ],
       link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: '/favicon.ico',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          href: '/favicon.png',
+        },
         {
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css?family=Nunito+Sans:400,700',
