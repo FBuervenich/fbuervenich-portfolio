@@ -27,7 +27,7 @@
     "@nuxt/devtools": "^3.2.3",
     "@types/node": "^24.3.0",
     "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.5.0",
