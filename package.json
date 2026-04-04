@@ -15,7 +15,7 @@
     "@nuxt/image": "^2.0.0",
     "@nuxtjs/i18n": "^10.1.2",
     "@nuxtjs/tailwindcss": "^6.13.1",
-    "dotenv": "^16.0.0",
+    "dotenv": "^17.3.1",
     "gray-matter": "^4.0.3",
     "markdown-it": "^14.1.0",
     "nuxt": "^4.4.2",
